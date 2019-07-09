@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css?family=Mukta:300,400,500,600,700&display=swap');
+
+// font-family: 'Mukta', sans-serif;
+
+.bg {
+  --background: #FFC93A;
+}
+
+.bag-card {
+  margin-top: 30px;
+  box-shadow: none;
+  --border-radius: 0;
+  --background: transparent;
+}
+
+.bag {
+  width: 218px;
+  height: 262px;
+  background-size: cover;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.logo-card {
+  box-shadow: none;
+}
+
+.logo {
+  width: 100px;
+  height: 80px;
+  object-fit: contain;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.login-card {
+  position: absolute;
+  top: 280px;
+  width: 300px;
+  background: rgb(255, 255, 255);
+  padding: 20px;
+  padding-top: 40px;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  border-radius: 30px;
+  -webkit-box-shadow: 0 8px 6px -6px black;
+  -moz-box-shadow: 0 8px 6px -6px black;
+  box-shadow: 0 8px 6px -6px black;
+}
+
+#name,
+#password {
+  --background: #FD5440;
+  --placeholder-color: rgb(255, 255, 255);
+  --placeholder-opacity: 10;
+  color: rgb(255, 255, 255);
+  font-weight: 700;
+  font-size: 11px;
+  --padding-start: 5px;
+  margin-bottom: 10px;
+  height: 40px;
+  --border-radius: 7px;
+  letter-spacing: 1px;
+  font-family: 'Mukta', sans-serif;
+}
+
+.login-btn {
+  --background: #FFC93A;
+  --background-activated: #565656;
+  margin-bottom: 10px;
+  --box-shadow: none;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  height: 40px;
+  font-weight: 700;
+  font-size: 11px;
+  --border-radius: 0;
+  letter-spacing: 1px;
+  --box-shadow: none;
+  font-family: 'Mukta', sans-serif;
+}
+
+.create-btn {
+  --background: #565656;
+  --background-activated: #FFC93A;
+  margin-bottom: 10px;
+  --box-shadow: none;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  height: 40px;
+  font-weight: 700;
+  font-size: 11px;
+  --border-radius: 0;
+  letter-spacing: 1px;
+  --box-shadow: none;
+  font-family: 'Mukta', sans-serif;
+}
+
+.icon {
+  color: white;
+  width: 20px;
+  height: 20px;
+  margin-left: 10px;
+}
+
+.check {
+  --background-checked: #FFC93A;
+  --border-radius: 6px;
+  --checkmark-color: #FD5440;
+  --border-color-checked: #FFC93A;
+  --border-color: #FFC93A;
+  --border-width: 2px;
+  --background: #FD5440;
+}

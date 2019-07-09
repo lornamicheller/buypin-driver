@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css?family=Mukta:300,400,500,600,700&display=swap');
+// font-family: 'Mukta', sans-serif;
+
+.title-service {
+  font-size: 25px;
+  font-weight: 300;
+  margin-top: 15px;
+  color: #FD5440;
+  font-family: 'Mukta', sans-serif;
+}
+
+.circle-img {
+  width: 150px;
+  height: 150px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.tutorial-first-card {
+  box-shadow: none;
+}
+
+.service-info {
+  line-height: 25px;
+  font-weight: 300;
+  font-size: 16px;
+  text-align: center;
+  font-family: 'Mukta', sans-serif;
+}
+
+ion-slides {
+  --bullet-background: #FFC93A;
+  --bullet-background-active: #FD5440;
+}
+
+.start-btn {
+  --background: #FD5440;
+  --background-activated: #FFC93A;
+  --border-radius: 25px;
+  height: 40px;
+  margin-top: 30px;
+  margin-bottom: 40px;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: 'Mukta', sans-serif;
+  width: 200px;
+}
