@@ -1,0 +1,90 @@
+.logo {
+  text-align: center;
+  font-size: 20px;
+  font-weight: 700;
+  font-family: 'Mukta', sans-serif;
+  color: white;
+  margin-top: 50px;
+  margin-bottom: 25x;
+}
+
+.logo-card {
+  box-shadow: none;
+  margin: 0;
+  border-radius: 0;
+  --background: #FFC93A;
+  width: 100%;
+}
+
+.icon-btn {
+  color: rgb(255, 255, 255);
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  top: 50px;
+  left: 10px;
+}
+
+.lic-card {
+  box-shadow: none;
+  box-shadow: 0 8px 6px -6px black;
+  border: 1px solid rgb(194, 194, 194);
+  height: auto;
+}
+
+.lic-photo {
+  height: auto;
+  object-fit: contain;
+}
+
+.input {
+  margin-left: auto;
+  margin-right: auto;
+  --padding-start: 10px;
+  font-family: 'Mukta', sans-serif;
+  height: 40px;
+}
+
+.style-placeholder {
+  --padding-start: 0;
+  font-family: 'Mukta', sans-serif;
+}
+
+
+.name {
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid rgb(112, 112, 112);
+  --padding-start: 10px;
+  font-family: 'Mukta', sans-serif;
+  --placeholder-font-weight: 700;
+  font-weight: 700;
+  height: 40px;
+}
+
+.title-input {
+  font-weight: 700;
+  font-size: 13px;
+  padding-bottom: 5px;
+  font-family: 'Mukta', sans-serif;
+}
+
+.input {
+  margin-left: auto;
+  margin-right: auto;
+  --padding-start: 10px;
+  font-family: 'Mukta', sans-serif;
+  height: 40px;
+}
+
+.complete-btn {
+  --background: #FD5440;
+  --background-activated: #FD5440;
+  --border-radius: 25px;
+  font-size: 15px;
+  font-weight: 700;
+  height: 50px;
+  --box-shadow: none;
+  font-family: 'Mukta', sans-serif;
+  margin-top: 50px;
+}

@@ -6,21 +6,21 @@
 
 
   <ion-card class="bag-card">
-    <img class="bag" src="assets/bolsa.png">
+    <img class="bag" src="assets/pin-red.png">
   </ion-card>
 
   <ion-card class="login-card">
-    <ion-input [(ngModel)]="username" id="name" type="text" placeholder="USERNAME">
+    <ion-input [(ngModel)]="username" id="name" type="text" placeholder="EMAIL">
       <ion-icon class="icon" ios="ios-person" md="md-person"></ion-icon>
     </ion-input>
     <ion-input [(ngModel)]="password" id="password" type="password" placeholder="PASSWORD">
       <ion-icon class="icon" ios="ios-lock" md="md-lock"></ion-icon>
     </ion-input>
-    <ion-button style="--box-shadow: none;"  (click)="signIn()" class="login-btn" expand="block">LOGIN</ion-button>
+    <ion-button style="--box-shadow: none;"  (click)="openPage2()" class="login-btn" expand="block">LOGIN</ion-button>
     <ion-button style="--box-shadow: none;"  (click)="openPage()" class="create-btn" expand="block">CREATE ACCOUNT</ion-button>
   </ion-card>
 
-  <ion-card style="box-shadow: none; margin: 0; margin-top: 200px;">
+  <ion-card style="box-shadow: none; margin: 0; margin-top: 20px;">
 
     <ion-grid>
       <ion-row >

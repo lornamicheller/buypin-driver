@@ -74,4 +74,21 @@
   --ion-color-light-contrast-rgb: 0, 0, 0;
   --ion-color-light-shade: #d7d8da;
   --ion-color-light-tint: #f5f6f9;
+
+  ion-button {
+    --box-shadow: none;
+    text-transform: none;
+  }
+
+  ion-card {
+    box-shadow: none;
+  }
+
+@import url('https://fonts.googleapis.com/css?family=Mukta:300,400,500,600,700&display=swap');
+  
+
+  // @font-face {
+  //   font-family: 'Mukta', sans-serif;
+  //   src: url('https://fonts.googleapis.com/css?family=Mukta:300,400,500,600,700&display=swap');
+  // }
 }

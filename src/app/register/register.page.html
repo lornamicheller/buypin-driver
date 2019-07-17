@@ -1,0 +1,30 @@
+<ion-card class="logo-card">
+  <img class="logo" src="assets/logo.png">
+</ion-card>
+
+<ion-content class="bg-orange">
+
+  <!-- <ion-card class="logo-card">
+    <img class="logo" src="assets/logo.png">
+  </ion-card> -->
+
+  <ion-card style="box-shadow: none; padding: 10px; margin-top: 0;">
+    <h5 class="title-input">NAME</h5>
+    <ion-input [(ngModel)]="fullName" type="text" class="name" placeholder="Full Name"></ion-input>
+    <h5 class="title-input">PHONE</h5>
+    <ion-input [(ngModel)]="email" type="tel" class="name" placeholder="Phone Number"></ion-input>
+    <h5 class="title-input">EMAIL</h5>
+    <ion-input [(ngModel)]="email" type="text" class="name" placeholder="Email Address"></ion-input>
+    <h5 class="title-input">PASSWORD</h5>
+    <ion-input [(ngModel)]="password" type="password" class="name" placeholder="Password"></ion-input>
+    <h5 class="title-input">COMFIRM PASSWORD</h5>
+    <ion-input [(ngModel)]="confirmPass" type="password" class="name" placeholder="Password"></ion-input>
+  </ion-card>
+
+  <ion-card style="box-shadow: none;">
+    <ion-button style="--box-shadow: none;" (click)="openPage()" class="create-btn" expand="block">CREATE ACCOUNT
+    </ion-button>
+    <ion-button style="--box-shadow: none;" (click)="goBack()" class="already-btn" expand="full">I'm already a member
+    </ion-button>
+  </ion-card>
+</ion-content>

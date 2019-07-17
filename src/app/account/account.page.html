@@ -1,0 +1,28 @@
+<ion-card class="logo-card">
+  <ion-icon class="icon" ios="ios-person" md="md-person"></ion-icon>
+  <h1 class="logo">
+    Cuenta
+  </h1>
+  <ion-icon (click)="goBack()" ion-button class="icon-btn" ios="ios-arrow-back" md="md-arrow-back"></ion-icon>
+</ion-card>
+
+<ion-content class="bg">
+
+  <ion-card ion-button (click)="openInfo()" class="whole-info">
+    <ion-icon class="icon-2" ios="ios-arrow-forward" md="md-arrow-forward"></ion-icon>
+    <p class="name">John Doe</p>
+    <p class="phone">787-999-8787</p>
+    <p class="email">test@email.com</p>
+  </ion-card>
+
+  <ion-card ion-button (click)="openDriver()" class="whole-info2">
+    <ion-icon class="icon-3" ios="ios-arrow-forward" md="md-arrow-forward"></ion-icon>
+    <p class="licence">Licencia de conducir</p>
+  </ion-card>
+
+  <ion-card ion-button (click)="openVehicle()" class="whole-info2">
+    <ion-icon class="icon-3" ios="ios-arrow-forward" md="md-arrow-forward"></ion-icon>
+    <p class="licence">Licencia de vehículo</p>
+  </ion-card>
+
+</ion-content>

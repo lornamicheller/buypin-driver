@@ -1,0 +1,209 @@
+<ion-menu side="start" menuId="custom" class="my-custom-menu">
+
+  <ion-content class="bg">
+    <ion-card class="logo-card">
+      <img class="logo-img" src="assets/white-logo.png">
+    </ion-card>
+    <ion-list style="background: transparent;">
+      <ion-item class="menu-title" ion-buttons (click)="stayHome()">
+        <ion-icon class="icon" ios="ios-home" md="md-home"></ion-icon>
+        Inicio
+      </ion-item>
+      <ion-item class="menu-title" ion-buttons (click)="openAccountPage()">
+        <ion-icon class="icon" ios="ios-contact" md="md-contact"></ion-icon>
+        Cuenta
+      </ion-item>
+      <ion-item class="menu-title" ion-buttons (click)="openEarnings()">
+        <!-- <ion-icon class="icon" ios="ios-paper" md="md-paper"></ion-icon> -->
+        <ion-icon class="icon" ios="ios-card" md="md-card"></ion-icon>
+        Ganancias
+      </ion-item>
+      <ion-item class="menu-title" ion-buttons (click)="navHistorial()">
+        <ion-icon class="icon" ios="ios-help" md="md-help"></ion-icon>
+        Términos y Condiciones
+      </ion-item>
+      <ion-item class="menu-title" ion-buttons (click)='miVehiculo()'>
+        <ion-icon class="icon" ios="ios-people" md="md-people"></ion-icon>
+        Sobre Buypin
+      </ion-item>
+    </ion-list>
+  </ion-content>
+
+  <ion-router-outlet main></ion-router-outlet>
+</ion-menu>
+
+<div>
+  <ion-card class="yellow-header">
+    <ion-icon ion-button class="menu-btn" (click)="openCustom()" ios="ios-menu" md="md-menu"></ion-icon>
+    <p class="title">Órdenes</p>
+  </ion-card>
+</div>
+
+<ion-content style="margin-bottom: 10px;">
+
+  <ion-card class="service-card">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="4" style="padding-top: 0;">
+          <ion-avatar class="avatar-img">
+            <img src="assets/avatar1.png">
+          </ion-avatar>
+        </ion-col>
+        <ion-col style="padding-top: 0;">
+          <p class="left-text">Nombre: <span class="right-text">John Doe</span></p>
+          <p class="left-text">Pueblo: <span class="right-text">Cabo Rojo</span></p>
+          <p class="left-text">Tienda escogida: <span class="right-text">Farmacia</span></p>
+          <div class="divider"></div>
+          <p class="left-text2">Total: <span class="right-text2">$74.99</span></p>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-grid style="padding-top: 0;">
+      <ion-row>
+        <ion-col style="padding-top: 0;">
+          <ion-card style="margin: 0;">
+            <ion-button expand="block" (click)="openPage()" class="first-btn">
+              <ion-icon class="icon2" ios="ios-checkmark" md="md-checkmark"></ion-icon>
+              <ion-ripple-effect></ion-ripple-effect>
+              Aceptar
+            </ion-button>
+          </ion-card>
+        </ion-col>
+        <ion-col style="padding-top: 0;">
+          <ion-card style="margin: 0;">
+            <ion-button expand="block" class="second-btn">
+              <ion-icon class="icon2" ios="ios-close" md="md-close"></ion-icon>
+              <ion-ripple-effect></ion-ripple-effect>
+              Rechazar
+            </ion-button>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+
+  <ion-card class="service-card">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="4">
+          <ion-avatar class="avatar-img">
+            <img src="assets/avatar2.png">
+          </ion-avatar>
+        </ion-col>
+        <ion-col size="">
+          <p class="left-text">Nombre: <span class="right-text">John Doe</span></p>
+          <p class="left-text">Pueblo: <span class="right-text">Cabo Rojo</span></p>
+          <p class="left-text">Tienda escogida: <span class="right-text">Farmacia</span></p>
+          <div class="divider"></div>
+          <p class="left-text2">Total: <span class="right-text2">$74.99</span></p>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-grid style="padding-top: 0;">
+      <ion-row>
+        <ion-col style="padding-top: 0;">
+          <ion-card style="margin: 0;">
+            <ion-button expand="block" (click)="openPage()" class="first-btn">
+              <ion-icon class="icon2" ios="ios-checkmark" md="md-checkmark"></ion-icon>
+              <ion-ripple-effect></ion-ripple-effect>
+              Aceptar
+            </ion-button>
+          </ion-card>
+        </ion-col>
+        <ion-col style="padding-top: 0;">
+          <ion-card style="margin: 0;">
+            <ion-button expand="block" class="second-btn">
+              <ion-icon class="icon2" ios="ios-close" md="md-close"></ion-icon>
+              <ion-ripple-effect></ion-ripple-effect>
+              Rechazar
+            </ion-button>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+
+  <ion-card class="service-card">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="4">
+          <ion-avatar class="avatar-img">
+            <img src="assets/avatar3.png">
+          </ion-avatar>
+        </ion-col>
+        <ion-col size="">
+          <p class="left-text">Nombre: <span class="right-text">John Doe</span></p>
+          <p class="left-text">Pueblo: <span class="right-text">Cabo Rojo</span></p>
+          <p class="left-text">Tienda escogida: <span class="right-text">Farmacia</span></p>
+          <div class="divider"></div>
+          <p class="left-text2">Total: <span class="right-text2">$74.99</span></p>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-grid style="padding-top: 0;">
+      <ion-row>
+        <ion-col style="padding-top: 0;">
+          <ion-card style="margin: 0;">
+            <ion-button expand="block" (click)="openPage()" class="first-btn">
+              <ion-icon class="icon2" ios="ios-checkmark" md="md-checkmark"></ion-icon>
+              <ion-ripple-effect></ion-ripple-effect>
+              Aceptar
+            </ion-button>
+          </ion-card>
+        </ion-col>
+        <ion-col style="padding-top: 0;">
+          <ion-card style="margin: 0;">
+            <ion-button expand="block" class="second-btn">
+              <ion-icon class="icon2" ios="ios-close" md="md-close"></ion-icon>
+              <ion-ripple-effect></ion-ripple-effect>
+              Rechazar
+            </ion-button>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+
+  <ion-card class="service-card">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="4">
+          <ion-avatar class="avatar-img">
+            <img src="assets/avatar4.png">
+          </ion-avatar>
+        </ion-col>
+        <ion-col size="">
+          <p class="left-text">Nombre: <span class="right-text">John Doe</span></p>
+          <p class="left-text">Pueblo: <span class="right-text">Cabo Rojo</span></p>
+          <p class="left-text">Tienda escogida: <span class="right-text">Farmacia</span></p>
+          <div class="divider"></div>
+          <p class="left-text2">Total: <span class="right-text2">$74.99</span></p>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-grid style="padding-top: 0;">
+      <ion-row>
+        <ion-col style="padding-top: 0;">
+          <ion-card style="margin: 0;">
+            <ion-button expand="block" (click)="openPage()" class="first-btn">
+              <ion-icon class="icon2" ios="ios-checkmark" md="md-checkmark"></ion-icon>
+              <ion-ripple-effect></ion-ripple-effect>
+              Aceptar
+            </ion-button>
+          </ion-card>
+        </ion-col>
+        <ion-col style="padding-top: 0;">
+          <ion-card style="margin: 0;">
+            <ion-button expand="block" class="second-btn">
+              <ion-icon class="icon2" ios="ios-close" md="md-close"></ion-icon>
+              <ion-ripple-effect></ion-ripple-effect>
+              Rechazar
+            </ion-button>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+
+</ion-content>

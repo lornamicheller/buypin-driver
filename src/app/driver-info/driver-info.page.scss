@@ -1,0 +1,68 @@
+.logo {
+  text-align: center;
+  font-size: 20px;
+  font-weight: 700;
+  font-family: 'Mukta', sans-serif;
+  color: white;
+  margin-top: 50px;
+  margin-bottom: 25x;
+}
+
+.logo-card {
+  box-shadow: none;
+  margin: 0;
+  border-radius: 0;
+  --background: #FFC93A;
+  width: 100%;
+}
+
+.icon-btn {
+  color: rgb(255, 255, 255);
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  top: 50px;
+  left: 10px;
+}
+
+.camera-card {
+  box-shadow: 0 8px 6px -6px black;
+  border: 1px solid rgb(190, 190, 190);
+  height: 200px;
+}
+
+.first-image {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 20px;
+}
+
+.input-card {
+  border-radius: 0;
+}
+
+.input {
+  border: 2px solid #ffc93a;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+.done-btn {
+  --background: #FD5440;
+  --background-activated: #FD5440;
+  --border-radius: 25px;
+  font-size: 13px;
+  font-weight: 700;
+  height: 50px;
+  --box-shadow: none;
+  font-family: 'Mukta', sans-serif;
+  margin-top: 20px;
+}

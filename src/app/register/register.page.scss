@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css?family=Mukta:300,400,500,600,700&display=swap');
+
+// font-family: 'Mukta', sans-serif;
+
+.bg-orange {
+  --background: #FFC93A;
+}
+
+.logo {
+  width: 200px;
+  height: 100px;
+  object-fit: contain;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+}
+
+.logo-card {
+  box-shadow: none;
+  margin: 0;
+  border-radius: 0;
+  --background: #FFC93A;
+  width: 100%;
+}
+
+.picture-btn {
+  width: 100px;
+  height: 100px;
+  --background: #565656;
+  --background-activated: #565656;
+  --border-radius: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+}
+
+.arrow-icon {
+  color: white;
+  width: 25px;
+  height: 25px;
+}
+
+.arrow-btn {
+  --background: transparent;
+  --background-activated: transparent;
+  position: absolute;
+  top: 25px;
+  left: 0;
+  --box-shadow: none;
+}
+
+.circle-img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+}
+
+.title-input {
+  color: white;
+  margin-top: 20px;
+  font-weight: 700;
+  font-size: 13px;
+  padding-bottom: 5px;
+  font-family: 'Mukta', sans-serif;
+}
+
+.name {
+  margin-left: auto;
+  margin-right: auto;
+  border: 2px solid white;
+  --padding-start: 10px;
+  --placeholder-opacity: 10;
+  --color: rgb(255, 255, 255);
+  font-family: 'Mukta', sans-serif;
+  --placeholder-font-weight: 700;
+  font-weight: 700;
+}
+
+.checkbox-color {
+  margin-top: 40px;
+  margin-right: 10px;
+  --background: #ffc93a;
+}
+
+.create-btn {
+  --background: #FD5440;
+  --background-activated: #FD5440;
+  --border-radius: 25px;
+  font-size: 13px;
+  font-weight: 700;
+  height: 50px;
+  --box-shadow: none;
+  font-family: 'Mukta', sans-serif;
+}
+
+.already-btn {
+  border: none;
+  --background: transparent;
+  --background-activated: transparent;
+  border-bottom: 1px solid white;
+  width: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  --box-shadow: none;
+  font-family: 'Mukta', sans-serif;
+
+}

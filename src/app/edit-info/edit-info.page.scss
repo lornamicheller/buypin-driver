@@ -1,0 +1,60 @@
+.logo {
+  width: 200px;
+  height: 100px;
+  object-fit: contain;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+}
+
+.icon-btn {
+  color: rgb(255, 255, 255);
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  top: 65px;
+  left: 10px;
+}
+
+.logo-card {
+  box-shadow: none;
+  margin: 0;
+  border-radius: 0;
+  --background: #FFC93A;
+  width: 100%;
+}
+
+.title-input {
+  color: grey;
+  margin-top: 20px;
+  font-weight: 700;
+  font-size: 13px;
+  padding-bottom: 5px;
+  font-family: 'Mukta', sans-serif;
+}
+
+.name {
+  margin-left: auto;
+  margin-right: auto;
+  border: 2px solid #FD5440;
+  --padding-start: 10px;
+  --placeholder-opacity: 10;
+  --color: rgb(167, 167, 167);
+  font-family: 'Mukta', sans-serif;
+  --placeholder-font-weight: 700;
+  font-weight: 700;
+}
+
+.create-btn {
+  --background: #FD5440;
+  --background-activated: #FD5440;
+  --border-radius: 25px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 13px;
+  font-weight: 700;
+  height: 50px;
+  --box-shadow: none;
+  width: 300px;
+  font-family: 'Mukta', sans-serif;
+}

@@ -1,0 +1,54 @@
+<ion-card class="logo-card">
+  <h1 class="logo">Licencia de Vehículo</h1>
+  <ion-icon (click)="goBack()" ion-button class="icon-btn" ios="ios-arrow-back" md="md-arrow-back"></ion-icon>
+</ion-card>
+
+<ion-content>
+  <ion-card class="lic-card">
+    <img ion-button (click)="openCamera()" class="lic" src="assets/licencia de vehiculo.png">
+  </ion-card>
+
+  <ion-item>
+    <ion-input class="input" type="text" placeholder="IHV 645"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-datetime class="style-placeholder" displayFormat="MMMM / YY" placeholder="Select Date"></ion-datetime>
+  </ion-item>
+
+
+  <!-- <h5 class="title-input">NOMBRE COMPLETO</h5> -->
+  <ion-item>
+    <!-- <ion-input type="text" class="input" placeholder="Nombre"></ion-input> -->
+    <ion-input type="text" class="input" placeholder="John Doe"></ion-input>
+  </ion-item>
+  <!-- <h5 class="title-input">DIRECCIÓN</h5> -->
+  <ion-item>
+    <!-- <ion-input type="text" class="input" placeholder="Dirección"></ion-input> -->
+    <ion-input type="text" class="input" placeholder="Angora Central Park #20 Caguas, PR"></ion-input>
+  </ion-item>
+  <!-- <h5 class="title-input">MARCA</h5> -->
+  <ion-item>
+    <!-- <ion-input type="text" class="input" placeholder="Marca"></ion-input> -->
+    <ion-input type="text" class="input" placeholder="Toyota"></ion-input>
+  </ion-item>
+  <!-- <h5 class="title-input">MODELO</h5> -->
+  <ion-item>
+    <!-- <ion-input type="text" class="input" placeholder="Modelo"></ion-input> -->
+    <ion-input type="text" class="input" placeholder="Corolla"></ion-input>
+  </ion-item>
+  <!-- <h5 class="title-input">AÑO</h5> -->
+  <ion-item>
+    <!-- <ion-input type="text" class="input" placeholder="Año"></ion-input> -->
+    <ion-input type="type" class="input" placeholder="2014"></ion-input>
+  </ion-item>
+  <!-- <h5 class="title-input">COLOR</h5> -->
+  <ion-item>
+    <!-- <ion-input type="text" class="input" placeholder="Color"></ion-input> -->
+    <ion-input type="text" class="input" placeholder="Gris"></ion-input>
+  </ion-item>
+
+  <ion-card>
+    <ion-button (click)="openPage()" class="complete-btn" expand="block">GUARDAR</ion-button>
+  </ion-card>
+</ion-content>

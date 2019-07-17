@@ -6,47 +6,40 @@
   --background: #FFC93A;
 }
 
-.bag-card {
-  margin-top: 30px;
-  box-shadow: none;
-  --border-radius: 0;
-  --background: transparent;
-}
-
-.bag {
-  width: 218px;
-  height: 262px;
-  background-size: cover;
-  margin-left: auto;
-  margin-right: auto;
-}
-
 .logo-card {
   box-shadow: none;
+  margin-bottom: 0;
 }
 
 .logo {
-  width: 100px;
-  height: 80px;
+  width: 200px;
+  height: 100px;
   object-fit: contain;
   margin-left: auto;
   margin-right: auto;
 }
 
-.login-card {
-  position: absolute;
-  top: 280px;
-  width: 300px;
-  background: rgb(255, 255, 255);
-  padding: 20px;
-  padding-top: 40px;
+.bag {
+  width: 200px;
+  height: 200px;
   margin-left: auto;
   margin-right: auto;
-  left: 0;
-  right: 0;
+}
+
+.bag-card {
+  margin: 0;
+  padding: 0;
+  box-shadow: none;
+}
+
+.login-card {
+  width: 300px;
+  background: rgb(255, 255, 255);
+  margin: 0;
+  padding: 20px;
+  margin-left: auto;
+  margin-right: auto;
   border-radius: 30px;
-  -webkit-box-shadow: 0 8px 6px -6px black;
-  -moz-box-shadow: 0 8px 6px -6px black;
   box-shadow: 0 8px 6px -6px black;
 }
 

@@ -1,0 +1,63 @@
+import { Component, OnInit } from '@angular/core';
+import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
+import { NativePageTransitions, NativeTransitionOptions } from '@ionic-native/native-page-transitions/ngx';
+import { NavController } from "@ionic/angular";
+
+@Component({
+  selector: 'app-edit-driver',
+  templateUrl: './edit-driver.page.html',
+  styleUrls: ['./edit-driver.page.scss'],
+})
+export class EditDriverPage implements OnInit {
+
+  constructor(private camera: Camera, private nativePageTransitions: NativePageTransitions, public navigate : NavController) { }
+
+  picture: any;
+
+  ngOnInit() {
+  }
+
+  openCamera() {
+    const options: CameraOptions = {
+      quality: 50,
+      destinationType: this.camera.DestinationType.DATA_URL,
+      encodingType: this.camera.EncodingType.JPEG,
+      mediaType: this.camera.MediaType.PICTURE
+    }
+    this.camera.getPicture(options).then((imageData) => {
+
+      this.picture = 'data:image/jpeg;base64,' + imageData;
+
+      let base64Image = this.picture;
+      let name = "photo.jpeg";
+
+    }, 
+ (err)=> {
+    console.log('error de camara' + err);
+    alert(err);
+    });
+}
+
+openPage() {
+  let options: NativeTransitionOptions = {
+    duration: 300, 
+    iosdelay: 300,
+      androiddelay: 100,
+  }
+  console.log(options);
+  this.nativePageTransitions.fade(options);
+  this.navigate.navigateRoot("/account");
+}
+
+goBack() {
+  let options: NativeTransitionOptions = {
+    duration: 300, 
+    iosdelay: 300,
+      androiddelay: 100,
+  }
+  console.log(options);
+  this.nativePageTransitions.fade(options);
+  this.navigate.navigateRoot("/account");
+}
+
+}

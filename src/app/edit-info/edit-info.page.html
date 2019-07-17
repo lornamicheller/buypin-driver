@@ -1,0 +1,25 @@
+<ion-card class="logo-card">
+  <ion-icon (click)="goBack()" ion-button class="icon-btn" ios="ios-arrow-back" md="md-arrow-back"></ion-icon>
+  <img class="logo" src="assets/logo.png">
+</ion-card>
+
+<ion-content class="bg-orange">
+
+  <!-- <ion-card class="logo-card">
+      <img class="logo" src="assets/logo.png">
+    </ion-card> -->
+
+  <ion-card style="box-shadow: none; padding: 10px; margin-top: 0;">
+    <h5 class="title-input">NAME</h5>
+    <ion-input [(ngModel)]="fullName" type="text" class="name" placeholder="John Doe"></ion-input>
+    <h5 class="title-input">PHONE</h5>
+    <ion-input [(ngModel)]="email" type="tel" class="name" placeholder="787-205-5353"></ion-input>
+    <h5 class="title-input">EMAIL</h5>
+    <ion-input [(ngModel)]="email" type="text" class="name" placeholder="test@email.com"></ion-input>
+  </ion-card>
+
+  <ion-card style="box-shadow: none; position: absolute; bottom: 0; margin-left: auto; margin-right: auto; left: 0; right: 0;">
+    <ion-button style="--box-shadow: none;" (click)="saveInfo()" class="create-btn" expand="block">GUARDAR
+    </ion-button>
+  </ion-card>
+</ion-content>

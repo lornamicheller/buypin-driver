@@ -2,9 +2,22 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  { path: '', loadChildren: './tabs/tabs.module#TabsPageModule' },
-  { path: 'tutorial', loadChildren: './tutorial/tutorial.module#TutorialPageModule' },
-  { path: 'login', loadChildren: './login/login.module#LoginPageModule' }
+  { path: 'tabs', loadChildren: './tabs/tabs.module#TabsPageModule' },
+  { path: '', loadChildren: './tutorial/tutorial.module#TutorialPageModule' },
+  { path: 'login', loadChildren: './login/login.module#LoginPageModule' },
+  { path: 'register', loadChildren: './register/register.module#RegisterPageModule' },
+  { path: 'car-register', loadChildren: './car-register/car-register.module#CarRegisterPageModule' },
+  { path: 'licence-photo', loadChildren: './licence-photo/licence-photo.module#LicencePhotoPageModule' },
+  { path: 'licence-vehicle', loadChildren: './licence-vehicle/licence-vehicle.module#LicenceVehiclePageModule' },
+  { path: 'driver-info', loadChildren: './driver-info/driver-info.module#DriverInfoPageModule' },
+  { path: 'orders', loadChildren: './orders/orders.module#OrdersPageModule' },
+  { path: 'order-info', loadChildren: './order-info/order-info.module#OrderInfoPageModule' },
+  { path: 'account', loadChildren: './account/account.module#AccountPageModule' },
+  { path: 'edit-info', loadChildren: './edit-info/edit-info.module#EditInfoPageModule' },
+  { path: 'edit-driver', loadChildren: './edit-driver/edit-driver.module#EditDriverPageModule' },
+  { path: 'edit-vehicle', loadChildren: './edit-vehicle/edit-vehicle.module#EditVehiclePageModule' },
+  { path: 'see-order', loadChildren: './see-order/see-order.module#SeeOrderPageModule' },
+  { path: 'earnings', loadChildren: './earnings/earnings.module#EarningsPageModule' }
 ];
 @NgModule({
   imports: [
