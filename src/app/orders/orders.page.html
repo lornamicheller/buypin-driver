@@ -22,9 +22,13 @@
         <ion-icon class="icon" ios="ios-help" md="md-help"></ion-icon>
         Términos y Condiciones
       </ion-item>
-      <ion-item class="menu-title" ion-buttons (click)='miVehiculo()'>
+      <ion-item class="menu-title" ion-buttons (click)="miVehiculo()">
         <ion-icon class="icon" ios="ios-people" md="md-people"></ion-icon>
         Sobre Buypin
+      </ion-item>
+      <ion-item class="menu-title" ion-buttons (click)="logOut()">
+          <ion-icon class="icon" name="log-out"></ion-icon>
+        Logout
       </ion-item>
     </ion-list>
   </ion-content>

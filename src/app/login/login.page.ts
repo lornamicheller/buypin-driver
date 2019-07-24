@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { NativePageTransitions, NativeTransitionOptions } from '@ionic-native/native-page-transitions/ngx';
 import { NavController } from "@ionic/angular";
+import { AlertController } from '@ionic/angular';
+import { Parse } from 'parse';
+
+let parse = require("parse");
 
 @Component({
   selector: 'app-login',
@@ -9,7 +13,13 @@ import { NavController } from "@ionic/angular";
 })
 export class LoginPage implements OnInit {
 
-  constructor(private nativePageTransitions: NativePageTransitions, public navigate : NavController) { }
+  username: any;
+  password: any;
+
+  constructor(private nativePageTransitions: NativePageTransitions, public navigate : NavController, public alert: AlertController) {
+    Parse.initialize("C0XMchZu6Y9XWNUK4lM1UHnnuXhC3dcdpa5fGYpO", "EdN4Xnln11to6pfyNaQ5HD05laenoYu04txYAcfo"); 
+    Parse.serverURL = "https://parseapi.back4app.com"; 
+   }
 
   ngOnInit() {
   }
@@ -36,6 +46,37 @@ export class LoginPage implements OnInit {
     console.log(options);
     this.nativePageTransitions.fade(options);
     this.navigate.navigateRoot("/orders");
+  }
+
+  signIn() {
+    if (this.username == null || this.password == null) {
+    this.empty();
+    } else {
+    Parse.User.logIn(this.username, this.password).then((resp) => {
+    console.log(this.username);
+    console.log(this.password);
+    console.log('Logged in successfully', resp);
+    this.openPage2();
+    }, err => {
+    console.log('Error logging in', err);
+    });
+    }
+    }
+
+    async empty() {
+    const alert = await this.alert.create({
+    header: '¡ALERTA!',
+    message: 'Todos los campos son requeridos',
+    buttons: [{
+    text: 'OK',
+    role: 'cancel',
+    cssClass: 'secondary',
+    handler: () => {
+    console.log('Confirm Cancel');
+    }
+    }]
+    });
+    await alert.present();
   }
 
 }
