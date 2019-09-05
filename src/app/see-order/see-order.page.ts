@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NativePageTransitions, NativeTransitionOptions } from '@ionic-native/native-page-transitions/ngx';
 import { NavController } from "@ionic/angular";
+import { BuypindriverService } from "../buypindriver.service";
 
 @Component({
   selector: 'app-see-order',
@@ -9,10 +10,26 @@ import { NavController } from "@ionic/angular";
 })
 export class SeeOrderPage implements OnInit {
 
-  constructor(private nativePageTransitions: NativePageTransitions, public navigate : NavController) { }
+  constructor(public provider: BuypindriverService,private nativePageTransitions: NativePageTransitions, public navigate : NavController) { }
+
+  items:any;
+  date:any;
+  total:any;
 
   ngOnInit() {
+    this.items = [];
+    this.items = this.provider.serviceId.get("items");
+
+    this.date = this.provider.serviceId.get("date");
+
+    this.total = this.provider.serviceId.get("orderTotal");
+    
+
+    console.log(this.items);
+
   }
+
+  
 
   goBack() {
     let options: NativeTransitionOptions = {

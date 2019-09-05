@@ -6,22 +6,41 @@
 <ion-content>
   <ion-card style="margin-bottom: 0;">
     <p class="articles">Lista de artículos</p>
-    <p class="date">2/ junio/ 2019</p>
+    <p class="date">{{date}}</p>
   </ion-card>
 
   <ion-card class="article-container">
-    <ion-grid style="border-top: 1px solid rgb(206, 206, 206);">
+
+      <ion-grid style="border-top: 1px solid rgb(206, 206, 206);">
+          <ion-row>
+            <ion-col style="padding-top: 0; padding-bottom: 0; text-align: center">
+              <p class="article-name">Nombre:</p>
+            </ion-col>
+            <ion-col style="padding-top: 0; padding-bottom: 0; text-align: center;">
+              <p class="price">Cantidad:</p>
+            </ion-col>
+            <ion-col style="padding-top: 0; padding-bottom: 0; text-align: center;">
+                <p class="price">Precio:</p>
+              </ion-col>
+          </ion-row>
+        </ion-grid>
+
+
+    <ion-grid *ngFor="let item of items" style="border-top: 1px solid rgb(206, 206, 206);">
       <ion-row>
         <ion-col style="padding-top: 0; padding-bottom: 0;">
-          <p class="article-name">Coca Cola</p>
+          <p class="article-name">{{item.prodName}}</p>
         </ion-col>
         <ion-col style="padding-top: 0; padding-bottom: 0;">
-          <p class="price">$1.99</p>
+          <p class="price">{{item.quantityNumber}}</p>
         </ion-col>
+        <ion-col style="padding-top: 0; padding-bottom: 0;">
+            <p class="price">${{item.originalPrice}}</p>
+          </ion-col>
       </ion-row>
     </ion-grid>
 
-    <ion-grid style="border-top: 1px solid rgb(206, 206, 206);">
+    <!-- <ion-grid style="border-top: 1px solid rgb(206, 206, 206);">
       <ion-row>
         <ion-col style="padding-top: 0; padding-bottom: 0;">
           <p class="article-name">Doritos</p>
@@ -63,7 +82,7 @@
           <p class="price">$2.99</p>
         </ion-col>
       </ion-row>
-    </ion-grid>
+    </ion-grid> -->
 
     <ion-grid style="border-top: 1px solid rgb(206, 206, 206); background: #FFC93A">
       <ion-row>
@@ -71,7 +90,7 @@
           <p class="article-name" style="color: white; font-weight: 700; font-size: 15px;">TOTAL</p>
         </ion-col>
         <ion-col style="padding-top: 0; padding-bottom: 0;">
-          <p class="price" style="color: white; font-weight: 700; font-size: 15px;">$19.95</p>
+          <p class="price" style="color: white; font-weight: 700; font-size: 15px;">${{total}}</p>
         </ion-col>
       </ion-row>
     </ion-grid>

@@ -48,6 +48,18 @@ export class LoginPage implements OnInit {
     this.navigate.navigateRoot("/orders");
   }
 
+  openPage3()
+  {
+    let options: NativeTransitionOptions = {
+      duration: 300, 
+        iosdelay: 300,
+      androiddelay: 100,
+    }
+    console.log(options);
+    this.nativePageTransitions.fade(options);
+    this.navigate.navigateRoot("/forgot-password");
+  }
+
   signIn() {
     if (this.username == null || this.password == null) {
     this.empty();
@@ -56,6 +68,11 @@ export class LoginPage implements OnInit {
     console.log(this.username);
     console.log(this.password);
     console.log('Logged in successfully', resp);
+    if(resp.get("role") == "C")
+    {
+      this.customer();
+      return;
+    }
     this.openPage2();
     }, err => {
     console.log('Error logging in', err);
@@ -67,6 +84,22 @@ export class LoginPage implements OnInit {
     const alert = await this.alert.create({
     header: '¡ALERTA!',
     message: 'Todos los campos son requeridos',
+    buttons: [{
+    text: 'OK',
+    role: 'cancel',
+    cssClass: 'secondary',
+    handler: () => {
+    console.log('Confirm Cancel');
+    }
+    }]
+    });
+    await alert.present();
+  }
+
+  async customer() {
+    const alert = await this.alert.create({
+    header: '¡ALERTA!',
+    message: 'Su cuenta esta registrada como cliente de BuyPin. Por favor inicie sección en la aplicación BuyPin Client.',
     buttons: [{
     text: 'OK',
     role: 'cancel',

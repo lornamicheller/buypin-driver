@@ -1,47 +1,96 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController } from "@ionic/angular";
+import { NavController, AlertController } from "@ionic/angular";
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import { NativePageTransitions, NativeTransitionOptions } from '@ionic-native/native-page-transitions/ngx';
+import { AnyARecord } from 'dns';
+import { Parse } from "parse";
+import { BuypindriverService } from "./../../app/buypindriver.service";
+let parse = require("parse");
 
 @Component({
   selector: 'app-edit-vehicle',
   templateUrl: './edit-vehicle.page.html',
   styleUrls: ['./edit-vehicle.page.scss'],
 })
-export class EditVehiclePage implements OnInit {
 
-  constructor(private camera: Camera, private nativePageTransitions: NativePageTransitions, public navigate : NavController) { }
+export class EditVehiclePage implements OnInit {
   picture: any;
+  savedPhoto: any;
+  currentUser: any;
+  licensePic: any;
+  expDate: any;
+  license: any;
+  make: any;
+  items: any;
+  name: any;
+  address: any;
+  model: any;
+  year: any;
+  color: any;
+
+  objectData:any;
+  constructor(
+    private camera: Camera,
+    private nativePageTransitions: NativePageTransitions,
+    public navigate: NavController,
+    public provider: BuypindriverService,
+    public alert: AlertController
+  ) {
+    Parse.initialize("C0XMchZu6Y9XWNUK4lM1UHnnuXhC3dcdpa5fGYpO", "EdN4Xnln11to6pfyNaQ5HD05laenoYu04txYAcfo");
+    Parse.serverURL = "https://parseapi.back4app.com";
+  }
 
   ngOnInit() {
+    this.currentUser = Parse.User.current();
+    console.log(Parse.User.current().id)
+    this.getInfo();
   }
 
   openCamera() {
     const options: CameraOptions = {
-      quality: 50,
+      quality: 25,
       destinationType: this.camera.DestinationType.DATA_URL,
       encodingType: this.camera.EncodingType.JPEG,
       mediaType: this.camera.MediaType.PICTURE
-    }
-    this.camera.getPicture(options).then((imageData) => {
+    };
 
+    this.camera.getPicture(options).then((imageData) => {
       this.picture = 'data:image/jpeg;base64,' + imageData;
 
-      let base64Image = this.picture;
-      let name = "photo.jpeg";
+      const base64Image = this.picture;
+      const name = 'photo.jpeg';
 
-    }, 
- (err)=> {
-    console.log('error de camara' + err);
-    alert(err);
-    });
-}
+      const parseFile = new Parse.File(name, {
+        base64: base64Image
+      }); // convierte la foto a base64
+      parseFile.save().then((savedFile) => {
+        console.log('file saved:' + savedFile);
+        this.savedPhoto = savedFile;
+        this.currentUser.set('licensePic', savedFile);
+
+        this.currentUser.save().then((result) => {
+          console.log(result);
+          console.log(" Saved");
+        });
+
+        this.provider.photo = savedFile; // foto tomada
+      }, (err) => {
+        console.log('error grabando file: ' + err);
+      });
+
+    },
+      (err) => {
+        console.log('error de camara' + err);
+        alert(err);
+      });
+  }
+
 
   openPage() {
     let options: NativeTransitionOptions = {
-      duration: 300, 
+      duration: 300,
       iosdelay: 300,
-        androiddelay: 100,
+      androiddelay: 100,
     }
     console.log(options);
     this.nativePageTransitions.fade(options);
@@ -50,13 +99,87 @@ export class EditVehiclePage implements OnInit {
 
   goBack() {
     let options: NativeTransitionOptions = {
-      duration: 300, 
+      duration: 300,
       iosdelay: 300,
-        androiddelay: 100,
+      androiddelay: 100,
     }
     console.log(options);
     this.nativePageTransitions.fade(options);
     this.navigate.navigateRoot("/account");
   }
 
+  getInfo() {
+    Parse.Cloud.run('getCarInfo', {
+      userId: Parse.User.current().id
+    }).then((result) => {
+      console.log(result);
+      this.objectData = result;
+      this.items = result;
+      this.licensePic = this.items.get('licensePic').url();
+      this.license = this.items.get('license');
+      this.expDate = this.items.get('expDate');
+      this.name = Parse.User.current().get('fullName');
+      this.address = this.items.get('address');
+      this.make = this.items.get('make');
+      this.model = this.items.get('model');
+      this.year = this.items.get('year');
+      this.color = this.items.get('color');
+    }, (error) => {
+      console.log(error);
+    });
+  }
+
+  setNewData() {
+    // Parse.Cloud.run('setEditVehicleInfo', {
+    //   address: this.address,
+    //   make: this.make,
+    //   model: this.model,
+    //   year: this.year,
+    //   color: this.color,
+    //   license: this.license,
+    //   expDate: this.expDate,
+    //   userId: Parse.User.current().id
+    // }).then((result) => {
+    //   console.log(result);
+
+    // }, (error) => {
+    //   console.log(error);
+    // });
+    this.objectData.set('licensePic').url();
+    this.objectData.set('address', this.address);
+    this.objectData.set('make', this.make);
+    this.objectData.set('model', this.model);
+    this.objectData.set('year', this.year);
+    this.objectData.set('color', this.color);
+    this.objectData.set('license', this.license);
+    this.objectData.set('expDate', this.expDate);
+
+    this.objectData.save().then(result =>
+      {
+          console.log(result);
+          this.savedInfo();
+         
+
+      });
+
+
+
+   
+  }
+
+  async savedInfo() {
+    const alert = await this.alert.create({
+      header: 'ALERTA!',
+      message: 'Su informacion ha sido guardada exitosamente!',
+      buttons: [
+        {
+          text: 'OK',
+          cssClass: 'greenBtn',
+        }
+      ]
+    });
+
+    await alert.present();
+    this.openPage();
+  }
 }

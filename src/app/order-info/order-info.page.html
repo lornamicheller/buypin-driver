@@ -6,24 +6,27 @@
 <ion-content>
   <ion-card class="first-card">
     <p class="customer-title">Nombre</p>
-    <p class="customer-name">John Doe</p>
+    <p class="customer-name">{{name}}</p>
   </ion-card>
 
   <ion-card class="first-card">
     <p class="customer-title">Dirección</p>
-    <p class="customer-name2">San Rosa 2, Parcelas Huertas, calle 11 #174, Guaynabo, Puero Rico</p>
+    <p class="customer-name2">{{address}}</p>
 
     <ion-button class="address-btn" expand="block">DIRECCIÓN</ion-button>
   </ion-card>
 
   <ion-card class="first-card">
     <p class="customer-title">Nota:</p>
-    <p class="customer-name" style="color: grey;">Que las donas esten calientes.</p>
+    <p *ngIf="notes != null " class="customer-name" style="color: grey;">{{notes}}</p>
+    <p *ngIf="notes == null " class="customer-name" style="color: grey;">No hay comentarios disponibles.</p>
   </ion-card>
 
   <ion-card>
     <p class="customer-title2">Presione la dirección para abrir en Google Maps.</p>
-    <ion-button class="address-btn2" expand="block"><ion-img src="assets/location buypin.png" class="pin-img"></ion-img>EN CAMINO</ion-button>
+    <ion-button *ngIf="status == 'A'" (click)="inProcess()" class="address-btn2" expand="block"><ion-img src="assets/location buypin.png" class="pin-img"></ion-img>EN CAMINO</ion-button>
+    <ion-button *ngIf="status == 'IP'" (click)="finish()" class="address-btn2" expand="block"><ion-img src="assets/location buypin.png" class="pin-img"></ion-img>FINALIZADO</ion-button>
+    <!-- <ion-button *ngIf="status == 'R'" (click)="inProcess(item)" class="address-btn2" expand="block"><ion-img src="assets/location buypin.png" class="pin-img"></ion-img>EN CAMINO</ion-button> -->
 
     <ion-button class="address-btn3" (click)="seeOrder()" expand="block">VER ORDEN</ion-button>
 

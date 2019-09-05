@@ -9,35 +9,60 @@
     <img class="bag" src="assets/pin-red.png">
   </ion-card>
 
+
   <ion-card class="login-card">
-    <ion-input [(ngModel)]="username" id="name" type="text" placeholder="EMAIL">
-      <ion-icon class="icon" ios="ios-person" md="md-person"></ion-icon>
-    </ion-input>
-    <ion-input [(ngModel)]="password" id="password" type="password" placeholder="PASSWORD">
-      <ion-icon class="icon" ios="ios-lock" md="md-lock"></ion-icon>
-    </ion-input>
-    <ion-button style="--box-shadow: none;"  (click)="signIn()" class="login-btn" expand="block">LOGIN</ion-button>
-    <ion-button style="--box-shadow: none;"  (click)="openPage()" class="create-btn" expand="block">CREATE ACCOUNT</ion-button>
-  </ion-card>
-
-  <ion-card style="box-shadow: none; margin: 0; margin-top: 20px;">
-
-    <ion-grid>
-      <ion-row >
-        <ion-col size="2" style="margin-top: 10px;">
-          <ion-checkbox style="float: right;" class="check"></ion-checkbox>
+    <ion-grid no-padding style="background: #FD5440; margin-bottom: 10px;">
+      <ion-row no-padding>
+        <ion-col no-padding size="1">
+          <ion-icon class="icon" ios="ios-person" md="md-person"></ion-icon>
         </ion-col>
-        <ion-col size="4" style="margin-top: 10px;">
-          <p
-            style="margin: 0; padding: 0; margin-top: 5px; font-weight: 700; color: rgb(255, 255, 255); font-size: 15px; font-family: 'Mukta', sans-serif;">
-            Remember me</p>
-        </ion-col>
-        <ion-col size="5">
-          <ion-button (click)="openPage3()" expand="full"
-            style="--box-shadow: none; --background: transparent; --background-activated: transparent; font-weight: 700;font-size: 15px; font-family: 'Mukta', sans-serif;">
-            Forgot password?</ion-button>
+        <ion-col no-padding>
+          <ion-input [(ngModel)]="username" id="name" type="text" placeholder="EMAIL">
+          </ion-input>
         </ion-col>
       </ion-row>
     </ion-grid>
+
+    <ion-grid no-padding style="background: #FD5440; margin-top: 5px; margin-bottom: 10px;">
+      <ion-row no-padding>
+        <ion-col no-padding size="1">
+          <ion-icon class="icon" ios="ios-lock" md="md-lock"></ion-icon>
+        </ion-col>
+        <ion-col no-padding>
+          <ion-input [(ngModel)]="password" id="password" type="password" placeholder="CONTRASEÑA">
+          </ion-input>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-button style="--box-shadow: none;"  (click)="signIn()" class="login-btn" expand="block">LOGIN</ion-button>
+    <ion-button style="--box-shadow: none;"  (click)="openPage()" class="create-btn" expand="block">CREAR CUENTA</ion-button>
+  </ion-card>
+  
+
+  <!-- <ion-card class="login-card">
+    <ion-input [(ngModel)]="username" id="name" type="text" placeholder="EMAIL">
+    </ion-input>
+    <ion-input [(ngModel)]="password" id="password" type="password" placeholder="CONTRASEÑA">
+    </ion-input>
+    <ion-button style="--box-shadow: none;"  (click)="signIn()" class="login-btn" expand="block">LOGIN</ion-button>
+    <ion-button style="--box-shadow: none;"  (click)="openPage()" class="create-btn" expand="block">CREAR CUENTA</ion-button>
+  </ion-card> -->
+
+  <ion-card style="box-shadow: none; margin: 0; margin-left: auto; margin-right: auto; padding-top: 30px;">
+    <ion-grid ion-button no-padding>
+      <ion-row>
+        <ion-col size="4">
+          <img class="facebook-btn" src="assets/fbblue.png">
+        </ion-col>
+        <ion-col>
+          <p
+            style="font-family: 'Mukta', sans-serif; color: white; font-size: 15px; margin-top: 3px; margin-bottom: 0;">
+            Conectar con Facebook</p>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <p ion-button (click)="openPage3()" expand="full"
+      style="margin-top: 2px; text-align: center; color: white; font-weight: 700;font-size: 15px; font-family: 'Mukta', sans-serif;">
+      ¿Olvdidó su contraseña?</p>
   </ion-card>
 </ion-content>

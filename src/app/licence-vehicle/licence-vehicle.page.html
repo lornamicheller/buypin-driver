@@ -1,22 +1,23 @@
-<ion-card class="logo-card">
+<ion-card class="logo-card"  >
   <h1 class="logo">Licencia de Vehículo</h1>
   <ion-icon (click)="goBack()" ion-button class="icon-btn" ios="ios-arrow-back" md="md-arrow-back"></ion-icon>
 </ion-card>
 
 <ion-content>
   <ion-card class="lic-card">
-    <img ion-button (click)="openCamera()" class="lic" src="assets/licencia de vehiculo.png">
+    <img ion-button  *ngIf="savedPhoto == null"  (click)="presentAlertConfirm()" class="lic" src="assets/licencia de vehiculo.png">
+    <img ion-button  *ngIf="savedPhoto != null"  (click)="presentAlertConfirm()" class="lic" src="{{savedPhoto.url()}}">
   </ion-card>
 
-  <ion-item>
-    <ion-input class="input" type="tel" placeholder="Número de tablilla"></ion-input>
+  <ion-item >
+    <ion-input   class="input" type="tel">{{plate}}</ion-input>
   </ion-item>
 
   <ion-item>
-    <ion-datetime class="style-placeholder" displayFormat="MMMM / YY" placeholder="Select Date"></ion-datetime>
+    <ion-datetime [(ngModel)]="date" class="style-placeholder" displayFormat="D / MMMM / YYYY" max="2025" min="2019" placeholder="Select Date"></ion-datetime>
   </ion-item>
 
   <ion-card>
-    <ion-button (click)="openPage()" class="complete-btn" expand="block">COMPLETAR</ion-button>
+    <ion-button (click)="setData()" class="complete-btn" expand="block">COMPLETAR</ion-button>
   </ion-card>
 </ion-content>

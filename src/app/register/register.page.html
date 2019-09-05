@@ -7,24 +7,48 @@
   <!-- <ion-card class="logo-card">
     <img class="logo" src="assets/logo.png">
   </ion-card> -->
+  <!-- <ion-card class="logo-card">
+    <ion-icon (click)="goBack()" ion-button class="icon-btn" ios="ios-arrow-back" md="md-arrow-back"></ion-icon>
+  </ion-card> -->
 
   <ion-card style="box-shadow: none; padding: 10px; margin-top: 0;">
-    <h5 class="title-input">NAME</h5>
-    <ion-input [(ngModel)]="name" type="text" class="name" placeholder="Full Name"></ion-input>
-    <h5 class="title-input">PHONE</h5>
-    <ion-input [(ngModel)]="phone" type="tel" class="name" placeholder="Phone Number"></ion-input>
+    <h5 class="title-input">NOMBRE</h5>
+    <ion-input [(ngModel)]="name" type="text" class="name" placeholder="Nombre Completo"></ion-input>
+    <h5 class="title-input">TELEFONO</h5>
+    <ion-input [(ngModel)]="phone" type="tel" class="name" placeholder="Numero de Telefono"></ion-input>
     <h5 class="title-input">EMAIL</h5>
-    <ion-input [(ngModel)]="email" type="text" class="name" placeholder="Email Address"></ion-input>
-    <h5 class="title-input">PASSWORD</h5>
-    <ion-input [(ngModel)]="password" type="password" class="name" placeholder="Password"></ion-input>
-    <h5 class="title-input">COMFIRM PASSWORD</h5>
-    <ion-input [(ngModel)]="confirmPassword" type="password" class="name" placeholder="Password"></ion-input>
+    <ion-input [(ngModel)]="email" type="text" class="name" placeholder="Email"></ion-input>
+    <h5 class="title-input">CONTRASEÑA</h5>
+    <ion-input [(ngModel)]="password" type="password" class="name" placeholder="Contraseña"></ion-input>
+    <h5 class="title-input">CONFIRMAR CONTRASEÑA</h5>
+    <ion-input [(ngModel)]="confirmPassword" type="password" class="name" placeholder="Confirmar Contraseña"></ion-input>
+
+    <!--  Multiple Selection -->
+    <h5 class="title-input">ZIPCODE DISPONIBLE</h5>
+    <ion-item class="name2">
+      <ion-label class="title-input">ZipCode</ion-label>
+      <ion-select [(ngModel)]="zipCodeArray" multiple=" true" cancelText="Cancelar" okText="Ok">
+        <ion-select-option *ngFor="let zipcode of allZipCode" value="{{zipcode.get('zipcode')}}">
+          {{zipcode.get('zipcode')}}
+        </ion-select-option>
+        <!-- <ion-select-option value="olives">Black Olives</ion-select-option>
+        <ion-select-option value="xcheese">Extra Cheese</ion-select-option>
+        <ion-select-option value="peppers">Green Peppers</ion-select-option>
+        <ion-select-option value="mushrooms">Mushrooms</ion-select-option>
+        <ion-select-option value="onions">Onions</ion-select-option>
+        <ion-select-option value="pepperoni">Pepperoni</ion-select-option>
+        <ion-select-option value="pineapple">Pineapple</ion-select-option>
+        <ion-select-option value="sausage">Sausage</ion-select-option>
+        <ion-select-option value="Spinach">Spinach</ion-select-option> -->
+      </ion-select>
+    </ion-item>
+    <!--  end Multiple Selection -->
   </ion-card>
 
   <ion-card style="box-shadow: none;">
-    <ion-button style="--box-shadow: none;" (click)="signUserUp()" class="create-btn" expand="block">CREATE ACCOUNT
+    <ion-button style="--box-shadow: none;" (click)="signUserUp()" class="create-btn" expand="block">CREAR CUENTA
     </ion-button>
-    <ion-button style="--box-shadow: none;" (click)="goBack()" class="already-btn" expand="full">I'm already a member
+    <ion-button style="--box-shadow: none;" (click)="goBack()" class="already-btn" expand="full">¡Ya estoy registrado!
     </ion-button>
   </ion-card>
 </ion-content>

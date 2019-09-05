@@ -20,10 +20,11 @@
 }
 
 .bag {
-  width: 200px;
-  height: 200px;
+  width: 150px;
+  height: 150px;
   margin-left: auto;
   margin-right: auto;
+  object-fit: contain;
 }
 
 .bag-card {
@@ -45,18 +46,16 @@
 
 #name,
 #password {
-  --background: #FD5440;
   --placeholder-color: rgb(255, 255, 255);
   --placeholder-opacity: 10;
   color: rgb(255, 255, 255);
   font-weight: 700;
   font-size: 11px;
   --padding-start: 5px;
-  margin-bottom: 10px;
-  height: 40px;
   --border-radius: 7px;
   letter-spacing: 1px;
   font-family: 'Mukta', sans-serif;
+  margin-top: 2px;
 }
 
 .login-btn {
@@ -95,9 +94,10 @@
 
 .icon {
   color: white;
-  width: 20px;
-  height: 20px;
-  margin-left: 10px;
+  width: 18px;
+  height: 18px;
+  margin-top: 10px;
+  margin-left: 5px;
 }
 
 .check {
@@ -108,4 +108,10 @@
   --border-color: #FFC93A;
   --border-width: 2px;
   --background: #FD5440;
+}
+
+.facebook-btn {
+  width: 30px;
+  height: 30px;
+  float: right;
 }

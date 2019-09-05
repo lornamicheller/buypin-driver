@@ -5,18 +5,19 @@
 
 <ion-content>
   <ion-card class="lic-card">
-    <img ion-button (click)="openCamera()" class="lic" src="assets/icon licencia de conducir.png">
+    <img ion-button *ngIf="savedPhoto == null"  (click)="presentAlertConfirm()" class="lic" src="assets/icon licencia de conducir.png">
+    <img ion-button *ngIf="savedPhoto != null"  (click)="presentAlertConfirm()" class="lic" src="{{savedPhoto.url()}}">
   </ion-card>
 
   <ion-item>
-    <ion-input class="input" type="tel" placeholder="Número de licencia"></ion-input>
+    <ion-input [(ngModel)]="licenseNumber" class="input" type="tel" >{{plate}}</ion-input>
   </ion-item>
 
   <ion-item>
-    <ion-datetime class="style-placeholder" displayFormat="MMMM / YY" placeholder="Expiration Date"></ion-datetime>
+    <ion-datetime [(ngModel)]="expDate" class="style-placeholder" displayFormat="D /MMMM / YYYY" placeholder="Expiration Date" min="2019" max= "2025"> </ion-datetime>
   </ion-item>
 
   <ion-card>
-    <ion-button (click)="openPage()" class="complete-btn" expand="block">COMPLETAR</ion-button>
+    <ion-button (click)="addLicenseInfo()" class="complete-btn" expand="block">COMPLETAR</ion-button>
   </ion-card>
 </ion-content>

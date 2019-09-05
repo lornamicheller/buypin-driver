@@ -15,7 +15,8 @@
           <p class="article-name" style="color: white; font-weight: 700; font-size: 15px;">TOTAL</p>
         </ion-col>
         <ion-col style="padding-top: 0; padding-bottom: 0;">
-          <p class="price" style="color: white; font-weight: 700; font-size: 15px;">$19.95</p>
+          <p *ngIf="dailyReport != null" class="price" style="color: white; font-weight: 700; font-size: 15px;">${{dailyReport}}</p>
+          <p *ngIf="dailyReport == null" class="price" style="color: white; font-weight: 700; font-size: 15px;">$0.00</p>
         </ion-col>
       </ion-row>
     </ion-grid>
@@ -31,7 +32,8 @@
           <p class="article-name" style="color: white; font-weight: 700; font-size: 15px;">TOTAL</p>
         </ion-col>
         <ion-col style="padding-top: 0; padding-bottom: 0;">
-          <p class="price" style="color: white; font-weight: 700; font-size: 15px;">$19.95</p>
+          <p *ngIf="weeklyReports != null" class="price" style="color: white; font-weight: 700; font-size: 15px;">${{weeklyReports}}</p>
+          <p *ngIf="weeklyReports == null" class="price" style="color: white; font-weight: 700; font-size: 15px;">$0.00</p>
         </ion-col>
       </ion-row>
     </ion-grid>
@@ -47,7 +49,8 @@
           <p class="article-name" style="color: white; font-weight: 700; font-size: 15px;">TOTAL</p>
         </ion-col>
         <ion-col style="padding-top: 0; padding-bottom: 0;">
-          <p class="price" style="color: white; font-weight: 700; font-size: 15px;">$19.95</p>
+          <p *ngIf="monthReports != null" class="price" style="color: white; font-weight: 700; font-size: 15px;">${{monthReports}}</p>
+          <p *ngIf="monthReports == null" class="price" style="color: white; font-weight: 700; font-size: 15px;">$0.00</p>
         </ion-col>
       </ion-row>
     </ion-grid>
@@ -63,7 +66,8 @@
           <p class="article-name" style="color: white; font-weight: 700; font-size: 15px;">TOTAL</p>
         </ion-col>
         <ion-col style="padding-top: 0; padding-bottom: 0;">
-          <p class="price" style="color: white; font-weight: 700; font-size: 15px;">$19.95</p>
+          <p *ngIf="anualReports != null" class="price" style="color: white; font-weight: 700; font-size: 15px;">${{anualReports}}</p>
+          <p *ngIf="anualReports == null" class="price" style="color: white; font-weight: 700; font-size: 15px;">$0.00</p>
         </ion-col>
       </ion-row>
     </ion-grid>

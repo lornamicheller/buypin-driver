@@ -1,0 +1,17 @@
+<ion-card class="logo-card">
+  <h1 class="logo">Foto del Vehículo</h1>
+  <ion-icon (click)="goBack()" ion-button class="icon-btn" ios="ios-arrow-back" md="md-arrow-back"></ion-icon>
+</ion-card>
+
+<ion-content>
+  <ion-card class="lic-card">
+    <img ion-button *ngIf="savedPhoto == null"  (click)="presentAlertConfirm()" class="lic-photo" src="assets/fotodevehiculos.png">
+    <img ion-button *ngIf="savedPhoto != null"  (click)="presentAlertConfirm()" class="lic-photo" src="{{savedPhoto.url()}}">
+  </ion-card>
+
+
+
+  <ion-card>
+    <ion-button [disabled]="status" (click)="openPage()" class="complete-btn" expand="block">COMPLETAR</ion-button>
+  </ion-card>
+</ion-content>

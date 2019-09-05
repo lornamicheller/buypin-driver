@@ -17,7 +17,9 @@ const routes: Routes = [
   { path: 'edit-driver', loadChildren: './edit-driver/edit-driver.module#EditDriverPageModule' },
   { path: 'edit-vehicle', loadChildren: './edit-vehicle/edit-vehicle.module#EditVehiclePageModule' },
   { path: 'see-order', loadChildren: './see-order/see-order.module#SeeOrderPageModule' },
-  { path: 'earnings', loadChildren: './earnings/earnings.module#EarningsPageModule' }
+  { path: 'earnings', loadChildren: './earnings/earnings.module#EarningsPageModule' },
+  { path: 'car-picture', loadChildren: './car-picture/car-picture.module#CarPicturePageModule' },
+  { path: 'forgot-password', loadChildren: './forgot-password/forgot-password.module#ForgotPasswordPageModule' }
 ];
 @NgModule({
   imports: [

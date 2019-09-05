@@ -5,23 +5,28 @@
 
 <ion-content class="bg-orange">
 
+  <!-- <ion-card class="camera-card">
+    <ion-img *ngIf="savedPhoto == null" class="img" (click)="presentAlertConfirm()" src="assets/camera2.jpg"></ion-img>
+    <ion-img *ngIf="savedPhoto != null" class="img" src="{{savedPhoto.url()}}"></ion-img>
+
+</ion-card> -->
   <ion-card style="box-shadow: none; padding: 10px;">
     <h5 class="title-input">NOMBRE COMPLETO</h5>
-    <ion-input type="text" class="name" placeholder=""></ion-input>
+    <ion-input type="text" class="name" placeholder="">{{name}}</ion-input>
     <h5 class="title-input">DIRECCIÓN</h5>
-    <ion-input type="text" class="name" placeholder=""></ion-input>
+    <ion-input [(ngModel)]="address" type="text" class="name" placeholder=""></ion-input>
     <h5 class="title-input">MARCA</h5>
-    <ion-input type="text" class="name" placeholder=""></ion-input>
+    <ion-input [(ngModel)]="make"  type="text" class="name" placeholder=""></ion-input>
     <h5 class="title-input">MODELO</h5>
-    <ion-input type="text" class="name" placeholder=""></ion-input>
+    <ion-input [(ngModel)]="model"  type="text" class="name" placeholder=""></ion-input>
     <h5 class="title-input">AÑO</h5>
-    <ion-input type="type" class="name" placeholder=""></ion-input>
+    <ion-input [(ngModel)]="year"  type="type" class="name" placeholder=""></ion-input>
     <h5 class="title-input">TABLILLA</h5>
-    <ion-input type="text" class="name" placeholder=""></ion-input>
+    <ion-input [(ngModel)]="license"  type="text" class="name" placeholder=""></ion-input>
     <h5 class="title-input">COLOR</h5>
-    <ion-input type="text" class="name" placeholder=""></ion-input>
+    <ion-input [(ngModel)]="color"  type="text" class="name" placeholder=""></ion-input>
 
-    <ion-button (click)="openPage()" expand="block" class="done-btn">COMPLETAR</ion-button>
+    <ion-button (click)="setCar()" expand="block" class="done-btn">COMPLETAR</ion-button>
   </ion-card>
 
 </ion-content>

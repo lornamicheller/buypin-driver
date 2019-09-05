@@ -10,6 +10,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NativePageTransitions } from '@ionic-native/native-page-transitions/ngx';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
+// import { BuyPinServices } from './buypindriver.service';
 
 
 
