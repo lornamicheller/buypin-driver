@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>278961860879-ie6pflann5chqq4tt51ccfj85dk5um1r.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.278961860879-ie6pflann5chqq4tt51ccfj85dk5um1r</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCuThLoRrOXUzh8Zp1PKrOCAfZmNV-iEZM</string>
+	<key>GCM_SENDER_ID</key>
+	<string>278961860879</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.buypin.driver</string>
+	<key>PROJECT_ID</key>
+	<string>buypin-9290a</string>
+	<key>STORAGE_BUCKET</key>
+	<string>buypin-9290a.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:278961860879:ios:981ac6dd40e47b4e714e7a</string>
+	<key>DATABASE_URL</key>
+	<string>https://buypin-9290a.firebaseio.com</string>
+</dict>
+</plist>

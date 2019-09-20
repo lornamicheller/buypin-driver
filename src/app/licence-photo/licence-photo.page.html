@@ -10,14 +10,14 @@
   </ion-card>
 
   <ion-item>
-    <ion-input [(ngModel)]="licenseNumber" class="input" type="tel" >{{plate}}</ion-input>
+    <ion-input [(ngModel)]="licenseNumber" class="input" type="tel" placeholder="Número de Licencia" ></ion-input>
   </ion-item>
 
   <ion-item>
-    <ion-datetime [(ngModel)]="expDate" class="style-placeholder" displayFormat="D /MMMM / YYYY" placeholder="Expiration Date" min="2019" max= "2025"> </ion-datetime>
+    <ion-datetime [(ngModel)]="expDate" class="style-placeholder" displayFormat="D /MMMM / YYYY" placeholder="Fecha de Expiración" min="2019" max= "2025"> </ion-datetime>
   </ion-item>
 
   <ion-card>
-    <ion-button (click)="addLicenseInfo()" class="complete-btn" expand="block">COMPLETAR</ion-button>
+    <ion-button  (click)="addLicenseInfo()" class="complete-btn" expand="block">CONTINUAR</ion-button>
   </ion-card>
 </ion-content>

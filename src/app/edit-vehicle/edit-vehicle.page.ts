@@ -27,6 +27,7 @@ export class EditVehiclePage implements OnInit {
   model: any;
   year: any;
   color: any;
+  Pic:any;
 
   objectData:any;
   constructor(
@@ -85,6 +86,56 @@ export class EditVehiclePage implements OnInit {
       });
   }
 
+  openLibrary() {
+    const options: CameraOptions = {
+      quality: 25,
+      targetWidth: 900,
+      targetHeight: 600,
+      destinationType: this.camera.DestinationType.DATA_URL,
+      encodingType: this.camera.EncodingType.JPEG,
+      mediaType: this.camera.MediaType.PICTURE,
+      sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
+      saveToPhotoAlbum: false,
+      allowEdit: true
+    };
+
+    const self = this;
+
+    this.camera.getPicture(options).then((imageData) => {
+      self.picture = 'data:image/jpeg;base64,' + imageData;
+      //self.changeInformation.set('', self.picture);
+      const base64Image = self.picture;
+      const name = 'photo.jpeg';
+      const parseFile = new Parse.File(name, {
+        base64: base64Image
+      });
+
+      // convierte la foto a base64
+      parseFile.save().then((savedFile) => {
+        console.log('file saved:' + savedFile);
+        console.log('file saved:' + savedFile);
+        this.savedPhoto = savedFile;
+        this.currentUser.set('licensePic', savedFile);
+
+        this.currentUser.save().then((result) => {
+          console.log(result);
+          console.log(" Saved");
+        });
+
+        this.provider.photo = savedFile; // foto tomada
+      
+
+      }, (err) => {
+        console.log('error grabando file: ' + err);
+        alert(err);
+      });
+    }, (err) => {
+      console.log('error de camara' + err);
+      alert(err);
+    });
+  }
+
+
 
   openPage() {
     let options: NativeTransitionOptions = {
@@ -115,7 +166,7 @@ export class EditVehiclePage implements OnInit {
       console.log(result);
       this.objectData = result;
       this.items = result;
-      this.licensePic = this.items.get('licensePic').url();
+      this.savedPhoto = this.objectData.get('licensePic');
       this.license = this.items.get('license');
       this.expDate = this.items.get('expDate');
       this.name = Parse.User.current().get('fullName');
@@ -130,47 +181,87 @@ export class EditVehiclePage implements OnInit {
   }
 
   setNewData() {
-    // Parse.Cloud.run('setEditVehicleInfo', {
-    //   address: this.address,
-    //   make: this.make,
-    //   model: this.model,
-    //   year: this.year,
-    //   color: this.color,
-    //   license: this.license,
-    //   expDate: this.expDate,
-    //   userId: Parse.User.current().id
-    // }).then((result) => {
-    //   console.log(result);
-
-    // }, (error) => {
-    //   console.log(error);
-    // });
-    this.objectData.set('licensePic').url();
-    this.objectData.set('address', this.address);
-    this.objectData.set('make', this.make);
-    this.objectData.set('model', this.model);
-    this.objectData.set('year', this.year);
-    this.objectData.set('color', this.color);
-    this.objectData.set('license', this.license);
-    this.objectData.set('expDate', this.expDate);
-
-    this.objectData.save().then(result =>
-      {
-          console.log(result);
-          this.savedInfo();
-         
-
-      });
 
 
+    if(this.savedPhoto == null || this.name == null || this.name == '' || this.address == null || this.address == ''|| this.make == null || this.make == '' || this.model == null || this.model == '' || this.year == null || this.year == '' || this.color == null || this.color =='' || this.license == null || this.license == '' || this.expDate == null || this.expDate == '')
+    {
+      this.errorInfo();
+      return;
+    }
+    else if(this.savedPhoto != null && this.address != null && this.make != null && this.model != null && this.year != null && this.color != null && this.license != null && this.expDate != null)
+    {
+      this.objectData.set('licensePic',this.savedPhoto); 
+      this.objectData.set('address', this.address);
+      this.objectData.set('make', this.make);
+      this.objectData.set('model', this.model);
+      this.objectData.set('year', this.year);
+      this.objectData.set('color', this.color);
+      this.objectData.set('license', this.license);
+      this.objectData.set('expDate', this.expDate);
+  
+      this.objectData.save().then(result =>
+        {
+            console.log(result);
+            this.savedInfo();
+           
+  
+        });
 
-   
+    }
+
+  }
+
+  async errorInfo() {
+    const alert = await this.alert.create({
+      header: '¡ALERTA!',
+      message: 'Todos los campos son requeridos.',
+      buttons: [
+        {
+          text: 'OK',
+          cssClass: 'greenBtn',
+        }
+      ]
+    });
+
+    await alert.present();
+    // this.openPage();
+  }
+
+  async presentAlertConfirm() {
+    const alert = await this.alert.create({
+      header: 'Foto del Vehículo',
+      subHeader: '',
+      buttons: [
+        {
+          text: 'Cámara',
+          role: 'camara',
+          cssClass: 'secondary',
+          handler: (blah) => {
+            this.openCamera();
+            console.log('Confirm Cancel: blah');
+          }
+        }, {
+          text: 'Galería',
+          handler: () => {
+            this.openLibrary();
+            console.log('Confirm Okay');
+          }
+        },
+        {
+          text: 'Cancelar',
+          handler: () => {
+            console.log('Confirm Okay');
+          }
+        }
+      ]
+    });
+    await alert.present();
   }
 
   async savedInfo() {
     const alert = await this.alert.create({
-      header: 'ALERTA!',
-      message: 'Su informacion ha sido guardada exitosamente!',
+      header: '¡ALERTA!',
+      message: 'Su información ha sido guardada exitosamente.',
       buttons: [
         {
           text: 'OK',

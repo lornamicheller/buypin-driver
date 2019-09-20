@@ -12,14 +12,14 @@
 
   <ion-card class="input-card">
     <ion-label class="title-input">Nombre</ion-label>
-    <ion-input class="input" type="text">{{name}}</ion-input>
+    <ion-input [(ngModel)]="name"  class="input" type="text"></ion-input>
 
     <ion-label class="title-input">Número de Teléfono</ion-label>
-    <ion-input class="input" type="tel">{{number}}</ion-input>
+    <ion-input [(ngModel)]="number" class="input" type="tel"></ion-input>
 
     <ion-label class="title-input">Correo Electrónico</ion-label>
-    <ion-input class="input" type="tel">{{email}}</ion-input>
+    <ion-input [(ngModel)]="email" class="input" type="tel"></ion-input>
 
-    <ion-button class="done-btn" (click)="openPage()" expand="block">COMPLETAR</ion-button>
+    <ion-button class="done-btn" (click)="setNewData()" expand="block">CONTINUAR</ion-button>
   </ion-card>
 </ion-content>

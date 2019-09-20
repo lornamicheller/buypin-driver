@@ -20,6 +20,7 @@ export class LicenceVehiclePage implements OnInit {
   plate: any;
   plates:any;
   id:any;
+  status:any;
 
   constructor(public alert:AlertController,private camera: Camera, private nativePageTransitions: NativePageTransitions, public navigate: NavController, public provider: BuypindriverService) {
     Parse.initialize("C0XMchZu6Y9XWNUK4lM1UHnnuXhC3dcdpa5fGYpO", "EdN4Xnln11to6pfyNaQ5HD05laenoYu04txYAcfo");
@@ -29,6 +30,8 @@ export class LicenceVehiclePage implements OnInit {
   picture: any;
   currentUser: any;
   ngOnInit() {
+    console.log("license-vehicle provider init...");
+    this.status = true;
     this.currentUser = Parse.User.current();
     this.id = Parse.User.current().id;
     // this.plates = this.provider.plate.get('license');
@@ -59,6 +62,7 @@ export class LicenceVehiclePage implements OnInit {
         this.currentUser.set('licensePic', savedFile);
 
         this.currentUser.save().then((result) => {
+          this.status = false;
           console.log(result);
           console.log(" Saved");
         });
@@ -112,6 +116,7 @@ export class LicenceVehiclePage implements OnInit {
         this.currentUser.set('licensePic', savedFile);
 
         this.currentUser.save().then((result) => {
+          this.status = false;
           console.log(result);
           console.log(" Saved");
         });

@@ -4,31 +4,72 @@
 </ion-card>
 
 <ion-content>
-  <ion-card class="first-card">
+  <ion-card class="first-card" style="margin-bottom: 0;">
     <p class="customer-title">Nombre</p>
     <p class="customer-name">{{name}}</p>
   </ion-card>
 
+  <!--<ion-card class="first-card">
+      <p class="customer-title">Teléfono</p>
+      <p class="customer-name">{{telefono}}</p>
+  </ion-card>-->
+
+  <!--<ion-card class="first-card">
+        <p class="customer-title">Teléfono</p>
+        <p class="customer-name">No hay teléfono disponible.</p>
+        <ion-button class="call-btn" (click)="callStoreNumber()"  expand="block">LLAMAR Comercio</ion-button>
+    </ion-card>
+
+    <ion-card class="first-card">
+      <p class="customer-title">Teléfono</p>
+      <p class="customer-name">No hay teléfono disponible.</p>
+      <ion-button class="call-btn" (click)="callClientNumber()"  expand="block">LLAMAR Cliente</ion-button>
+    </ion-card>-->
+
   <ion-card class="first-card">
+    <img style="margin-left: auto; margin-right: auto; width: 30px; height: 30px;" src="assets/Artboard 30-8.png">
+    <ion-button class="call-btn2" (click)="callStoreNumber()" expand="block">LLAMAR COMERCIO</ion-button>
+    <ion-button class="call-btn2" style="--background: #FFC93A;" (click)="callClientNumber()" expand="block">LLAMAR
+      CLIENTE</ion-button>
+
+  </ion-card>
+
+
+  <!--<ion-card class="first-card">
     <p class="customer-title">Dirección</p>
     <p class="customer-name2">{{address}}</p>
 
-    <ion-button class="address-btn" expand="block">DIRECCIÓN</ion-button>
-  </ion-card>
+    <p class="customer-title2">Presione la dirección para abrir en Google Maps.</p>
+    <ion-button class="address-btn" expand="block" (click)="seeInMap()">DIRECCIÓN</ion-button>
+  </ion-card>-->
 
   <ion-card class="first-card">
+    <img style="margin-left: auto; margin-right: auto; width: 30px; height: 30px;" src="assets/Artboard 30 copy-8.png">
+    <ion-button class="call-btn2" expand="block" (click)="seeStoreInMap()">DIRECCIÓN COMERCIO</ion-button>
+    <ion-button class="call-btn2" expand="block" style="--background: #FFC93A;" (click)="seeInMap()">DIRECCIÓN
+      CLIENTE</ion-button>
+  </ion-card>
+
+  <!--<ion-card class="first-card">
     <p class="customer-title">Nota:</p>
     <p *ngIf="notes != null " class="customer-name" style="color: grey;">{{notes}}</p>
     <p *ngIf="notes == null " class="customer-name" style="color: grey;">No hay comentarios disponibles.</p>
-  </ion-card>
+  </ion-card>-->
 
   <ion-card>
-    <p class="customer-title2">Presione la dirección para abrir en Google Maps.</p>
-    <ion-button *ngIf="status == 'A'" (click)="inProcess()" class="address-btn2" expand="block"><ion-img src="assets/location buypin.png" class="pin-img"></ion-img>EN CAMINO</ion-button>
-    <ion-button *ngIf="status == 'IP'" (click)="finish()" class="address-btn2" expand="block"><ion-img src="assets/location buypin.png" class="pin-img"></ion-img>FINALIZADO</ion-button>
+    <img style="margin-left: auto; margin-right: auto; width: 30px; height: 30px;"
+      src="assets/Artboard 30 copy 2-8.png">
+
+    <ion-button *ngIf="status == 'A'" (click)="inProcess()" class="call-btn2" expand="block">
+      EN CAMINO
+    </ion-button>
+    <ion-button *ngIf="status == 'IP'" (click)="finish()" class="call-btn2" expand="block">
+      FINALIZADO
+    </ion-button>
     <!-- <ion-button *ngIf="status == 'R'" (click)="inProcess(item)" class="address-btn2" expand="block"><ion-img src="assets/location buypin.png" class="pin-img"></ion-img>EN CAMINO</ion-button> -->
 
-    <ion-button class="address-btn3" (click)="seeOrder()" expand="block">VER ORDEN</ion-button>
+    <ion-button class="call-btn2" (click)="seeOrder()" style="--background: #FFC93A;" expand="block">VER ORDEN
+    </ion-button>
 
   </ion-card>
 </ion-content>

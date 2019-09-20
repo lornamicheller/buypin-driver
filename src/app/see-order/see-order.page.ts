@@ -22,7 +22,7 @@ export class SeeOrderPage implements OnInit {
 
     this.date = this.provider.serviceId.get("date");
 
-    this.total = this.provider.serviceId.get("orderTotal");
+    this.total = this.provider.deliveryFee;
     
 
     console.log(this.items);

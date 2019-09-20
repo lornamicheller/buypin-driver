@@ -21,6 +21,7 @@ export class LicencePhotoPage implements OnInit {
   licenseNumber:any;
   currentUser:any;
   currUser:any;
+  status:any;
 
   constructor(public alert: AlertController,private camera: Camera, private nativePageTransitions: NativePageTransitions, public navigate : NavController, public provider: BuypindriverService) { 
     
@@ -29,7 +30,8 @@ export class LicencePhotoPage implements OnInit {
   }
   picture: any;
   ngOnInit() {
-this.currentUser = Parse.User.current();
+    this.status = true;
+    this.currentUser = Parse.User.current();
   }
 
   openCamera() {
@@ -181,21 +183,78 @@ goBack() {
 
 addLicenseInfo(){
   
+  if(this.savedPhoto == null)
+  {
+    this.photoError();
+    return;
+  }
 
-  this.currUser = Parse.User.current();
-  this.currUser.set('driverLicenseNumber', this.licenseNumber);
-  this.currUser.set('expDate', this.expDate)
+  if(this.expDate == null || this.expDate == '' || this.licenseNumber == null || this.licenseNumber == ''  )
+  {
+    this.informationError();
+    return;
+  }
+  else if(this.expDate != null && this.expDate != '' && this.licenseNumber != null && this.licenseNumber != '' && this.savedPhoto != null)
+  {
+    
+    this.currUser = Parse.User.current();
+    this.currUser.set('driverLicenseNumber', this.licenseNumber);
+    this.currUser.set('expDate', this.expDate)
+  
+   this.currUser.save().then((result)=> {
+            console.log(result);
+            console.log(" Saved");
+            this.openPage();
+          }, (error) => {
+            this.openPage();
+            console.log(error);
+          });
+        
+  }
 
- this.currUser.save().then((result)=> {
-          console.log(result);
-          console.log(" Saved");
-          this.openPage();
-        }, (error) => {
-          console.log(error);
-        });
-      
+ 
    
+}
+
+async informationError() {
+  const alert = await this.alert.create({
+    header: '¡ALERTA!',
+    subHeader: '',
+    message:'Todos los campos son requeridos.',
+    buttons: [
+      {
+        text: 'Ok',
+        role: 'camara',
+        cssClass: 'secondary',
+        handler: (blah) => {
+
+          console.log('Confirm Cancel: blah');
+        }
       }
+    ]
+  });
+  await alert.present();
+}
+    
+async photoError() {
+  const alert = await this.alert.create({
+    header: '¡ALERTA!',
+    subHeader: '',
+    message:'La foto es requerida.',
+    buttons: [
+      {
+        text: 'Ok',
+        role: 'camara',
+        cssClass: 'secondary',
+        handler: (blah) => {
+
+          console.log('Confirm Cancel: blah');
+        }
+      }
+    ]
+  });
+  await alert.present();
+}
     
     
 

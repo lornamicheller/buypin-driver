@@ -6,47 +6,50 @@
 <ion-content>
   <ion-card class="lic-card">
     <!-- <img ion-button   (click)="openCamera()" class="lic" src="assets/licencia de vehiculo.png"> -->
-    <img ion-button   (click)="openCamera()" class="lic" src="{{licensePic}}">
+    <img *ngIf="savedPhoto != null" ion-button   (click)="presentAlertConfirm()" class="lic" src="{{savedPhoto.url()}}">
+    <img *ngIf="savedPhoto == null" ion-button   (click)="presentAlertConfirm()" class="lic" src="assets/licencia de vehiculo.png">
   </ion-card>
 
   <ion-item>
-    <ion-input [(ngModel)]="license" class="input" type="text" placeholder="{{license}}"></ion-input>
+    <ion-input *ngIf="license == null" [(ngModel)]="license" class="input" type="tel" placeholder="Numero de Licencia"></ion-input>
+    <ion-input *ngIf="license != null" [(ngModel)]="license" class="input" type="tel" placeholder="{{license}}"></ion-input>
   </ion-item>
 
   <ion-item>
-    <ion-datetime [(ngModel)]="expDate" class="style-placeholder" displayFormat="MMMM / YY" placeholder="{{expDate}}"></ion-datetime>
+    <ion-datetime *ngIf="expDate == null " [(ngModel)]="expDate" class="style-placeholder" displayFormat="MMMM / YY" placeholder="Fecha de expiración" max="2025"></ion-datetime>
+    <ion-datetime *ngIf="expDate != null " [(ngModel)]="expDate" class="style-placeholder" displayFormat="MMMM / YY" placeholder="{{expDate}}" max="2025"></ion-datetime>
   </ion-item>
 
 
   <!-- <h5 class="title-input">NOMBRE COMPLETO</h5> -->
   <ion-item>
-    <!-- <ion-input type="text" class="input" placeholder="Nombre"></ion-input> -->
-    <ion-input [(ngModel)]="name" type="text" class="input" placeholder="{{fullName}}}"></ion-input>
+    <ion-input *ngIf="name == null" [(ngModel)]="name" type="text" class="input" placeholder="Nombre"></ion-input>
+    <ion-input *ngIf="name != null" [(ngModel)]="name" type="text" class="input" placeholder="{{name}}"></ion-input>
   </ion-item>
   <!-- <h5 class="title-input">DIRECCIÓN</h5> -->
   <ion-item>
-    <!-- <ion-input type="text" class="input" placeholder="Dirección"></ion-input> -->
-    <ion-input [(ngModel)]="address" type="text" class="input" placeholder="{{address}}"></ion-input>
+    <ion-input *ngIf="address == null" [(ngModel)]="address" type="text" class="input" placeholder="Dirección"></ion-input>
+    <ion-input *ngIf="address != null" [(ngModel)]="address" type="text" class="input" placeholder="{{address}}"></ion-input>
   </ion-item>
   <!-- <h5 class="title-input">MARCA</h5> -->
   <ion-item>
-    <!-- <ion-input type="text" class="input" placeholder="Marca"></ion-input> -->
-    <ion-input [(ngModel)]="make" type="text" class="input" placeholder="{{make}}"></ion-input>
+    <ion-input *ngIf="make == null" [(ngModel)]="make" type="text" class="input" placeholder="Marca"></ion-input>
+    <ion-input *ngIf="make != null" [(ngModel)]="make" type="text" class="input" placeholder="{{make}}"></ion-input>
   </ion-item>
   <!-- <h5 class="title-input">MODELO</h5> -->
   <ion-item>
-    <!-- <ion-input type="text" class="input" placeholder="Modelo"></ion-input> -->
-    <ion-input [(ngModel)]="model" type="text" class="input" placeholder="{{model}}"></ion-input>
+    <ion-input *ngIf="model == null" [(ngModel)]="model" type="text" class="input" placeholder="Modelo"></ion-input>
+    <ion-input *ngIf="model != null" [(ngModel)]="model" type="text" class="input" placeholder="{{model}}"></ion-input>
   </ion-item>
   <!-- <h5 class="title-input">AÑO</h5> -->
   <ion-item>
-    <!-- <ion-input type="text" class="input" placeholder="Año"></ion-input> -->
-    <ion-input [(ngModel)]="year" type="type" class="input" placeholder="{{year}}"></ion-input>
+    <ion-input *ngIf="year == null" [(ngModel)]="year" type="text" class="input" placeholder="Año"></ion-input>
+    <ion-input *ngIf="year != null" [(ngModel)]="year" type="type" class="input" placeholder="{{year}}"></ion-input>
   </ion-item>
   <!-- <h5 class="title-input">COLOR</h5> -->
   <ion-item>
-    <!-- <ion-input type="text" class="input" placeholder="Color"></ion-input> -->
-    <ion-input [(ngModel)]="color" type="text" class="input" placeholder="{{color}}"></ion-input>
+    <ion-input *ngIf="color == null" [(ngModel)]="color" type="text" class="input" placeholder="Color"></ion-input>
+    <ion-input *ngIf="color != null" [(ngModel)]="color" type="text" class="input" placeholder="{{color}}"></ion-input>
   </ion-item>
 
   <ion-card>

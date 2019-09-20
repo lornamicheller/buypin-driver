@@ -75,6 +75,7 @@ export class LoginPage implements OnInit {
     }
     this.openPage2();
     }, err => {
+      this.loginError();
     console.log('Error logging in', err);
     });
     }
@@ -99,7 +100,23 @@ export class LoginPage implements OnInit {
   async customer() {
     const alert = await this.alert.create({
     header: '¡ALERTA!',
-    message: 'Su cuenta esta registrada como cliente de BuyPin. Por favor inicie sección en la aplicación BuyPin Client.',
+    message: 'Su cuenta está registrada como cliente de BuyPin. Por favor inicie sesión en la aplicación BuyPin Cliente.',
+    buttons: [{
+    text: 'OK',
+    role: 'cancel',
+    cssClass: 'secondary',
+    handler: () => {
+    console.log('Confirm Cancel');
+    }
+    }]
+    });
+    await alert.present();
+  }
+
+  async loginError() {
+    const alert = await this.alert.create({
+    header: '¡ALERTA!',
+    message: 'Email y/o contraseña incorrecto.',
     buttons: [{
     text: 'OK',
     role: 'cancel',

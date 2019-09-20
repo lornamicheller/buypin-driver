@@ -6,18 +6,21 @@
   <ion-content>
     <ion-card class="lic-card">
       <!-- <img ion-button *ngIf="savedPhoto == null"  (click)="openCamera()" class="lic" src="assets/icon licencia de conducir.png"> -->
-      <img ion-button   (click)="openCamera()" class="lic" src="{{dPic.url()}}">
+      <img *ngIf="dPic.url() == null || dPic.url() == null" ion-button   (click)="presentAlertConfirm()" class="lic" src="assets/icon licencia de conducir.png">
+      <img *ngIf="dPic.url() != null || dPic.url() != null" ion-button   (click)="presentAlertConfirm()" class="lic" src="{{dPic.url()}}">
     </ion-card>
   
     <ion-item>
-      <ion-input [(ngModel)] ="number" class="input" type="tel" placeholder="{{number}}"></ion-input>
+      <ion-input *ngIf="number == null" [(ngModel)] ="number" class="input" type="tel" placeholder="Numero de Licencia de Conducir"></ion-input>
+      <ion-input *ngIf="number != null" [(ngModel)] ="number" class="input" type="tel" placeholder="{{number}}"></ion-input>
     </ion-item>
   
     <ion-item>
-      <ion-datetime  [(ngModel)] ="expDate"  class="style-placeholder" displayFormat="MMMM / YY" max="2025" min="2019" placeholder="{{expDate}}"></ion-datetime>
+      <ion-datetime *ngIf="expDate == null"  [(ngModel)] ="expDate"  class="style-placeholder" displayFormat="MMMM / YY" max="2025" min="2019" placeholder="Fecha de expiración"></ion-datetime>
+      <ion-datetime *ngIf="expDate != null"  [(ngModel)] ="expDate"  class="style-placeholder" displayFormat="MMMM / YY" max="2025" min="2019" placeholder="{{expDate}}"></ion-datetime>
     </ion-item>
   
     <ion-card>
-      <ion-button (click)="setNewData()" class="complete-btn" expand="block">COMPLETAR</ion-button>
+      <ion-button (click)="setNewData()" class="complete-btn" expand="block">GUARDAR</ion-button>
     </ion-card>
   </ion-content>

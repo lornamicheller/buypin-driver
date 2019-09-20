@@ -10,5 +10,6 @@ export class BuypindriverService {
   checked: boolean;
   serviceId:any;
   carObject:any;
+  deliveryFee:any;
   constructor() { }
 }

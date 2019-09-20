@@ -53,7 +53,8 @@ export class EarningsPage implements OnInit {
       }).then((result) => {
         console.log(result);
         // this.openPage();
-        this.dailyReport = result;
+        this.dailyReport = parseFloat( result+"" ).toFixed(2);
+        
         console.log("Daily", this.dailyReport);
       }, (error) => {
         console.log(error);
@@ -68,7 +69,7 @@ export class EarningsPage implements OnInit {
       }).then((result) => {
         console.log(result);
         // this.openPage();
-        this.weeklyReports = result;
+        this.weeklyReports = parseFloat( result+"" ).toFixed(2);
         console.log("Week", this.weeklyReports);
       }, (error) => {
         console.log(error);
@@ -83,7 +84,7 @@ export class EarningsPage implements OnInit {
       }).then((result) => {
         console.log(result);
         // this.openPage();
-        this.monthReports = result;
+        this.monthReports = parseFloat( result+"" ).toFixed(2);
         console.log("Month",this.monthReports);
       }, (error) => {
         console.log(error);
@@ -98,7 +99,7 @@ export class EarningsPage implements OnInit {
       }).then((result) => {
         console.log(result);
         // this.openPage();
-        this.anualReports = result;
+        this.anualReports = parseFloat( result+"" ).toFixed(2);
         console.log("Anual",this.anualReports);
       }, (error) => {
         console.log(error);

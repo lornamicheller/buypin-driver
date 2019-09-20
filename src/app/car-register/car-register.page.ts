@@ -98,7 +98,7 @@ export class CarRegisterPage implements OnInit {
   async notEqual() {
     const alert = await this.alert.create({
       header: '¡ALERTA!',
-      message: 'Todos los campos deben ser rellanados.',
+      message: 'Todos los campos son requeridos.',
       buttons: [{
         text: 'OK',
         role: 'cancel',

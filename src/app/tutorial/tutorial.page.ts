@@ -14,7 +14,7 @@ export class TutorialPage implements OnInit {
   constructor(private nativePageTransitions: NativePageTransitions, public navigate : NavController) { }
 
   ngOnInit() {
-    this.goHome();
+    // this.goHome();
   }
 
   goHome() {
@@ -23,7 +23,7 @@ export class TutorialPage implements OnInit {
     Parse.User.currentAsync().then(user => {
       console.log('Logged user', user);
   
-      user != null ? this.navigate.navigateRoot('/orders') : this.navigate.navigateRoot('/login');
+      user != null ? this.navigate.navigateRoot('/orders') : this.navigate.navigateRoot('/tutorial');
     }, err => {
       console.log('Error getting logged user',err);
       let options: NativeTransitionOptions = {
@@ -34,7 +34,7 @@ export class TutorialPage implements OnInit {
        this.nativePageTransitions.fade(options);
       });
       
-      this.navigate.navigateRoot("/tutorial");
+      this.navigate.navigateRoot("/login");
   }
 
 

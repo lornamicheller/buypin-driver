@@ -149,6 +149,76 @@ export class DriverInfoPage implements OnInit {
     });
   }
 
+  setNewData()
+  {
+    if(this.savedPhoto == null)
+    {
+      this.errorPicture();
+      return;
+    }
+
+    if(this.name == null || this.name == '' || this.email == null || this.email == '' || this.number == null || this.number == '' || 
+      this.email == null || this.email == '')
+      {
+        this.error();
+        return;
+      }
+    else if (this.name != null && this.name != '' && this.email != null && this.email != '' && this.number != null && this.number != '' && 
+    this.email != null && this.email != '')
+    {
+      this.currentUser.set("username", this.email);
+      this.currentUser.set("email", this.email);
+      this.currentUser.set("firstName", this.name);
+      this.currentUser.set("phoneNumber",this.number);
+
+      this.currentUser.save().then(result =>
+        {
+          console.log("Success.....");
+          this.openPage();
+        });
+    }
+
+  }
+
+
+  async error() {
+    const alert = await this.alert.create({
+      header: '¡ALERTA!',
+      subHeader: '',
+      message:"Todos los campos son requeridos",
+      buttons: [
+        {
+          text: 'Ok',
+          role: 'camera',
+          cssClass: 'secondary',
+          handler: (blah) => {
+            console.log('Confirm Cancel: blah');
+          }
+        }
+      ]
+    });
+    await alert.present();
+  }
+
+  async errorPicture() {
+    const alert = await this.alert.create({
+      header: '¡ALERTA!',
+      subHeader: '',
+      message:"La foto es requerida.",
+      buttons: [
+        {
+          text: 'Ok',
+          role: 'camera',
+          cssClass: 'secondary',
+          handler: (blah) => {
+            console.log('Confirm Cancel: blah');
+          }
+        }
+      ]
+    });
+    await alert.present();
+  }
+
 
   async presentAlertConfirm() {
     const alert = await this.alert.create({

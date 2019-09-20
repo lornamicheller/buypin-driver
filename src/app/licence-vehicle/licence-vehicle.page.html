@@ -9,15 +9,15 @@
     <img ion-button  *ngIf="savedPhoto != null"  (click)="presentAlertConfirm()" class="lic" src="{{savedPhoto.url()}}">
   </ion-card>
 
-  <ion-item >
-    <ion-input   class="input" type="tel">{{plate}}</ion-input>
+  <!-- <ion-item >
+    <ion-input [(ngModel)]="number"  class="input" type="tel" placeholder="Número de Licencia de Vehículo"></ion-input>
   </ion-item>
 
   <ion-item>
     <ion-datetime [(ngModel)]="date" class="style-placeholder" displayFormat="D / MMMM / YYYY" max="2025" min="2019" placeholder="Select Date"></ion-datetime>
-  </ion-item>
+  </ion-item> -->
 
   <ion-card>
-    <ion-button (click)="setData()" class="complete-btn" expand="block">COMPLETAR</ion-button>
+    <ion-button  [disabled]="status" (click)="openPage()" class="complete-btn" expand="block">CONTINUAR</ion-button>
   </ion-card>
 </ion-content>

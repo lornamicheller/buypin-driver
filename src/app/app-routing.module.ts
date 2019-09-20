@@ -19,7 +19,9 @@ const routes: Routes = [
   { path: 'see-order', loadChildren: './see-order/see-order.module#SeeOrderPageModule' },
   { path: 'earnings', loadChildren: './earnings/earnings.module#EarningsPageModule' },
   { path: 'car-picture', loadChildren: './car-picture/car-picture.module#CarPicturePageModule' },
-  { path: 'forgot-password', loadChildren: './forgot-password/forgot-password.module#ForgotPasswordPageModule' }
+  { path: 'forgot-password', loadChildren: './forgot-password/forgot-password.module#ForgotPasswordPageModule' },
+  { path: 'terms-condition', loadChildren: './terms-condition/terms-condition.module#TermsConditionPageModule' },
+  { path: 'about-buypin', loadChildren: './about-buypin/about-buypin.module#AboutBuypinPageModule' }
 ];
 @NgModule({
   imports: [

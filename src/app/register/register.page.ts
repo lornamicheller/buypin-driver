@@ -83,14 +83,14 @@ export class RegisterPage implements OnInit {
     console.log(this.email);
     console.log(this.password);
     console.log(this.role);
-    console.log(this.zipCodeArray);
+    // console.log(this.zipCodeArray);
 
-    if (this.name == null || this.name == '' || this.phone == null || this.phone == '' || this.email == null || this.email == '' || this.password == null || this.password == '' || this.confirmPassword == null || this.confirmPassword == '' || this.zipCodeArray == null) {
+    if (this.name == null || this.name == '' || this.phone == null || this.phone == '' || this.email == null || this.email == '' || this.password == null || this.password == '' || this.confirmPassword == null || this.confirmPassword == '' ) {
       this.empty();
       console.log("Esta vacio");
       return;
     }
-    if(this.name != null && this.name != '' && this.phone != null && this.phone != '' && this.email != null && this.email != '' && this.password != null && this.password != '' && this.confirmPassword != null && this.confirmPassword != '' && this.zipCodeArray != null)
+    if(this.name != null && this.name != '' && this.phone != null && this.phone != '' && this.email != null && this.email != '' && this.password != null && this.password != '' && this.confirmPassword != null && this.confirmPassword != '')
     {
         console.log("no es null");
 
@@ -111,8 +111,9 @@ export class RegisterPage implements OnInit {
               user.set("email", this.email);
               user.set("password", this.password);
               user.set("username", this.email);
-              user.set("workZipCode", this.zipCodeArray);
+              // user.set("workZipCode", this.zipCodeArray);
               user.set("role", "E");
+              user.set("isApproved", false);
 
               user
                 .signUp()
@@ -123,6 +124,7 @@ export class RegisterPage implements OnInit {
                 })
                 .catch(error => {
                   // this.test(JSON.stringify(error));
+                  this.messageFail("El email ingresado está asociado a una cuenta registrada.");
                   console.log(error);
                 });
 
@@ -168,6 +170,24 @@ export class RegisterPage implements OnInit {
   }
 
   async test(e) {
+    const alert = await this.alert.create({
+      header: "¡ALERTA!",
+      message: e,
+      buttons: [
+        {
+          text: "OK",
+          role: "cancel",
+          cssClass: "secondary",
+          handler: () => {
+            console.log("Confirm Cancel");
+          }
+        }
+      ]
+    });
+    await alert.present();
+  }
+
+  async messageFail(e) {
     const alert = await this.alert.create({
       header: "¡ALERTA!",
       message: e,
